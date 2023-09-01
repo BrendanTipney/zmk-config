@@ -23,8 +23,13 @@
         };
 
         PreviousApp {
-            bindings = <&kp B>;
+            bindings = <&AltTab>;
             key-positions = <15 16>;
+        };
+
+        NextApp {
+            bindings = <&ShiftAltTab>;
+            key-positions = <13 14>;
         };
     };
 
