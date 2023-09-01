@@ -16,6 +16,31 @@
             bindings = <&kp ESC>;
             key-positions = <0 1>;
         };
+
+        Enter {
+            bindings = <&kp ENTER>;
+            key-positions = <16 38>;
+        };
+
+        PreviousApp {
+            bindings = <&kp B>;
+            key-positions = <15 16>;
+        };
+    };
+
+    macros {
+        AltTab: AltTab {
+            compatible = "zmk,behavior-macro";
+            label = "ALTTAB";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ALT &kp TAB>;
+        };
+        ShiftAltTab: ShiftAltTab {
+            compatible = "zmk,behavior-macro";
+            label = "SHIFTALTTAB";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_SHIFT &kp LEFT_ALT &kp TAB>;
+        };
     };
 
     keymap {
