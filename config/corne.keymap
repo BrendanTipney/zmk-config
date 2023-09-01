@@ -31,6 +31,11 @@
             bindings = <&kp LA(LS(TAB))>;
             key-positions = <13 14>;
         };
+
+        CtrlAltDelete {
+            bindings = <&kp LC(LA(DELETE))>;
+            key-positions = <0 12 24>;
+        };
     };
 
     macros {
