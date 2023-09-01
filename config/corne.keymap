@@ -49,7 +49,7 @@
 
         MoveWindowLeft {
             bindings = <&kp LG(LEFT)>;
-            key-positions = <2 3>;
+            key-positions = <2 1>;
         };
 
         Maximize {
@@ -75,6 +75,26 @@
         AppView {
             bindings = <&kp LG(TAB)>;
             key-positions = <13 14 15 16>;
+        };
+
+        Up {
+            bindings = <&kp UP>;
+            key-positions = <3 2>;
+        };
+
+        Down {
+            bindings = <&kp DOWN>;
+            key-positions = <15 14>;
+        };
+
+        Left {
+            bindings = <&kp LEFT>;
+            key-positions = <14 13>;
+        };
+
+        Right {
+            bindings = <&kp RIGHT>;
+            key-positions = <16 15>;
         };
     };
 
