@@ -23,29 +23,17 @@
         };
 
         PreviousApp {
-            bindings = <&AltTab>;
+            bindings = <&kp LA(TAB)>;
             key-positions = <15 16>;
         };
 
         NextApp {
-            bindings = <&ShiftAltTab>;
+            bindings = <&kp LA(LS(TAB))>;
             key-positions = <13 14>;
         };
     };
 
     macros {
-        AltTab: AltTab {
-            compatible = "zmk,behavior-macro";
-            label = "ALTTAB";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_ALT &kp TAB>;
-        };
-        ShiftAltTab: ShiftAltTab {
-            compatible = "zmk,behavior-macro";
-            label = "SHIFTALTTAB";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_SHIFT &kp LEFT_ALT &kp TAB>;
-        };
     };
 
     keymap {
@@ -75,7 +63,7 @@
 
             bindings = <
 &trans  &trans  &kp N7      &kp N8        &kp N9     &kp N0     &trans  &trans  &trans  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BSPC
-&trans  &trans  &kp N4      &kp N5  &kp NUMBER_6  &kp EQUAL     &trans  &trans  &trans        &kp LEFT_BRACE        &kp RIGHT_BRACE    &trans
+&trans  &gresc  &kp N4      &kp N5  &kp NUMBER_6  &kp EQUAL     &trans  &trans  &trans        &kp LEFT_BRACE        &kp RIGHT_BRACE    &trans
 &trans  &trans  &kp N1      &kp N2        &kp N3  &kp MINUS     &trans  &trans  &trans      &kp LEFT_BRACKET      &kp RIGHT_BRACKET    &trans
                         &kp DELETE  &kp LEFT_WIN  &kp ENTER    &kp RET  &trans  &trans
             >;
