@@ -71,6 +71,11 @@
             bindings = <&kp LG(LC(LEFT))>;
             key-positions = <2 14 26>;
         };
+
+        AppView {
+            bindings = <&kp LG(TAB)>;
+            key-positions = <13 14 15 16>;
+        };
     };
 
     macros {
