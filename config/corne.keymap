@@ -37,14 +37,6 @@
     };
 
     behaviors {
-        WindowsKey: WindowsKey {
-            compatible = "zmk,behavior-tap-dance";
-            label = "WINDOWSKEY";
-            #binding-cells = <0>;
-            bindings =
-                <&kp LEFT_SHIFT>,
-                <&kp LEFT_WIN>;
-        };
     };
 
     keymap {
