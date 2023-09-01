@@ -74,10 +74,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-  &kp TAB  &trans  &kp N7      &kp N8        &kp N9     &kp N0     &trans  &trans  &trans  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BSPC
-   &trans  &trans  &kp N4      &kp N5  &kp NUMBER_6  &kp EQUAL     &trans  &trans  &trans        &kp LEFT_BRACE        &kp RIGHT_BRACE    &trans
-&kp LSHFT  &trans  &kp N1      &kp N2        &kp N3  &kp MINUS     &trans  &trans  &trans      &kp LEFT_BRACKET      &kp RIGHT_BRACKET    &trans
-                           &kp DELETE  &kp LEFT_WIN  &kp ENTER    &kp RET  &trans  &trans
+&trans  &trans  &kp N7      &kp N8        &kp N9     &kp N0     &trans  &trans  &trans  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BSPC
+&trans  &trans  &kp N4      &kp N5  &kp NUMBER_6  &kp EQUAL     &trans  &trans  &trans        &kp LEFT_BRACE        &kp RIGHT_BRACE    &trans
+&trans  &trans  &kp N1      &kp N2        &kp N3  &kp MINUS     &trans  &trans  &trans      &kp LEFT_BRACKET      &kp RIGHT_BRACKET    &trans
+                        &kp DELETE  &kp LEFT_WIN  &kp ENTER    &kp RET  &trans  &trans
             >;
         };
 
@@ -98,10 +98,10 @@
 
         Utility {
             bindings = <
-&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 3  &trans  &trans      &kp K_SCROLL_UP    &trans  &kp UP_ARROW    &kp PAGE_UP       &kp HOME  &kp END
-&trans        &trans        &trans        &trans  &trans  &trans    &kp K_SCROLL_DOWN  &kp LEFT      &kp DOWN      &kp RIGHT  &kp PAGE_DOWN   &trans
-&trans        &trans        &trans        &trans  &trans  &trans               &trans    &trans        &trans  &kp PAGE_DOWN         &trans   &trans
-                                          &trans  &trans  &trans               &trans    &trans        &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &kp K_SCROLL_UP        &trans  &kp UP_ARROW    &kp PAGE_UP       &kp HOME  &kp END
+&trans  &trans  &trans  &trans  &trans  &trans    &kp K_SCROLL_DOWN      &kp LEFT      &kp DOWN      &kp RIGHT  &kp PAGE_DOWN   &trans
+&trans  &trans  &trans  &trans  &trans  &trans         &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &kp PAGE_DOWN         &trans   &trans
+                        &trans  &trans  &trans               &trans        &trans        &trans
             >;
 
             label = "Utility";
