@@ -37,11 +37,6 @@
             key-positions = <0 12 24>;
         };
 
-        LeftHandArrows {
-            bindings = <&tog 4>;
-            key-positions = <16 15 14>;
-        };
-
         MoveWindowRight {
             bindings = <&kp LG(RIGHT)>;
             key-positions = <3 4>;
@@ -95,6 +90,16 @@
         Right {
             bindings = <&kp RIGHT>;
             key-positions = <16 15>;
+        };
+
+        End {
+            bindings = <&kp END>;
+            key-positions = <17 16 15>;
+        };
+
+        Home {
+            bindings = <&kp HOME>;
+            key-positions = <14 13 15>;
         };
     };
 
