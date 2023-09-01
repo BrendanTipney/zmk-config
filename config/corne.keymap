@@ -121,6 +121,21 @@
             bindings = <&kp K_SCROLL_DOWN>;
             key-positions = <28 16>;
         };
+
+        EndOfPage {
+            bindings = <&kp LC(END)>;
+            key-positions = <17 16 15 38>;
+        };
+
+        StartOfPage {
+            bindings = <&kp LC(HOME)>;
+            key-positions = <15 14 13 38>;
+        };
+
+        OpenApp {
+            bindings = <&kp LA(SPACE)>;
+            key-positions = <16 15 14>;
+        };
     };
 
     macros {
