@@ -120,10 +120,10 @@
         LeftSideArrows {
             label = "LeftSideArrows";
             bindings = <
-&trans  &trans    &trans  &kp UP_ARROW     &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &kp LEFT      &kp DOWN  &kp RIGHT  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans    &trans        &trans     &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                                &trans     &trans  &trans    &trans  &trans  &trans
+&trans  &trans    &trans  &kp UP_ARROW   &kp HOME  &kp END    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &kp LEFT      &kp DOWN  &kp RIGHT   &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans    &trans        &trans     &trans   &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                                &trans     &trans   &trans    &trans  &trans  &trans
             >;
         };
     };
