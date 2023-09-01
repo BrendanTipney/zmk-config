@@ -136,6 +136,36 @@
             bindings = <&kp LA(SPACE)>;
             key-positions = <16 15 14>;
         };
+
+        Brace {
+            bindings = <&kp LEFT_PARENTHESIS>;
+            key-positions = <7 8>;
+        };
+
+        EndBrace {
+            bindings = <&kp RIGHT_PARENTHESIS>;
+            key-positions = <8 9>;
+        };
+
+        CurlyBrace {
+            bindings = <&kp LEFT_BRACE>;
+            key-positions = <19 20>;
+        };
+
+        EndCurlyBrace {
+            bindings = <&kp RIGHT_BRACE>;
+            key-positions = <20 21>;
+        };
+
+        SquareBrace {
+            bindings = <&kp LEFT_BRACKET>;
+            key-positions = <31 32>;
+        };
+
+        EndSquareBrace {
+            bindings = <&kp RIGHT_BRACKET>;
+            key-positions = <32 33>;
+        };
     };
 
     macros {
