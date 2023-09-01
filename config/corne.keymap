@@ -36,6 +36,11 @@
             bindings = <&kp LC(LA(DELETE))>;
             key-positions = <0 12 24>;
         };
+
+        LeftHandArrows {
+            bindings = <&tog 4>;
+            key-positions = <16 15 14>;
+        };
     };
 
     macros {
@@ -113,14 +118,13 @@
         };
 
         LeftSideArrows {
+            label = "LeftSideArrows";
             bindings = <
 &trans  &trans    &trans  &kp UP_ARROW     &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &kp LEFT      &kp DOWN  &kp RIGHT  &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans    &trans        &trans     &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
                                 &trans     &trans  &trans    &trans  &trans  &trans
             >;
-
-            label = "LeftSideArrows";
         };
     };
 };
