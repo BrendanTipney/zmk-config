@@ -56,6 +56,21 @@
             bindings = <&kp LG(UP_ARROW)>;
             key-positions = <1 2 3>;
         };
+
+        Minimize {
+            bindings = <&kp LG(DOWN)>;
+            key-positions = <28 27 26>;
+        };
+
+        NextDesktop {
+            bindings = <&kp LC(LG(RIGHT))>;
+            key-positions = <4 16 28>;
+        };
+
+        PreviousDesktop {
+            bindings = <&kp LG(LC(LEFT))>;
+            key-positions = <2 14 26>;
+        };
     };
 
     macros {
