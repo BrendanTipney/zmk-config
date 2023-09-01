@@ -41,6 +41,21 @@
             bindings = <&tog 4>;
             key-positions = <16 15 14>;
         };
+
+        MoveWindowRight {
+            bindings = <&kp LG(RIGHT)>;
+            key-positions = <3 4>;
+        };
+
+        MoveWindowLeft {
+            bindings = <&kp LG(LEFT)>;
+            key-positions = <2 3>;
+        };
+
+        Maximize {
+            bindings = <&kp LG(UP_ARROW)>;
+            key-positions = <1 2 3>;
+        };
     };
 
     macros {
