@@ -101,6 +101,26 @@
             bindings = <&kp HOME>;
             key-positions = <14 13 15>;
         };
+
+        PageUp {
+            bindings = <&kp PAGE_UP>;
+            key-positions = <5 17>;
+        };
+
+        PageDown {
+            bindings = <&kp PAGE_DOWN>;
+            key-positions = <29 17>;
+        };
+
+        ScrollUp {
+            bindings = <&kp K_SCROLL_UP>;
+            key-positions = <4 16>;
+        };
+
+        ScrollDown {
+            bindings = <&kp K_SCROLL_DOWN>;
+            key-positions = <28 16>;
+        };
     };
 
     macros {
@@ -175,16 +195,6 @@
             >;
 
             label = "TopNumbers";
-        };
-
-        LeftSideArrows {
-            label = "LeftSideArrows";
-            bindings = <
-&trans  &trans    &trans  &kp UP_ARROW   &kp HOME  &kp END    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &kp LEFT      &kp DOWN  &kp RIGHT   &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans    &trans        &trans     &trans   &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                                &trans     &trans   &trans    &trans  &trans  &trans
-            >;
         };
     };
 };
