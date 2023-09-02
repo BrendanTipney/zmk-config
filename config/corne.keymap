@@ -104,12 +104,12 @@
 
         PageUp {
             bindings = <&kp PAGE_UP>;
-            key-positions = <5 17>;
+            key-positions = <4 16 38>;
         };
 
         PageDown {
             bindings = <&kp PAGE_DOWN>;
-            key-positions = <29 17>;
+            key-positions = <16 28 38>;
         };
 
         ScrollUp {
