@@ -12,8 +12,8 @@
     combos {
         compatible = "zmk,combos";
 
-        Escape {
-            bindings = <&kp ESC>;
+        Tab {
+            bindings = <&kp TAB>;
             key-positions = <0 1>;
         };
 
@@ -175,6 +175,11 @@
         NumberLayerToggle {
             bindings = <&tog 1>;
             key-positions = <28 2>;
+        };
+
+        Escape {
+            bindings = <&kp ESC>;
+            key-positions = <1 2 3 4 5>;
         };
     };
 
