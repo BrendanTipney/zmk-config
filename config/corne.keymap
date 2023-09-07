@@ -179,6 +179,14 @@
     };
 
     macros {
+        AppSwitcherEngage: AppSwitcherEngage {
+            compatible = "zmk,behavior-macro";
+            label = "APPSWITCHERENGAGE";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LA(TAB) &tog 5>;
+        };
     };
 
     behaviors {
