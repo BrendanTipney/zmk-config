@@ -193,6 +193,18 @@
             tapping-term-ms = <200>;
             hold-trigger-key-positions = <12>;
         };
+        TriggerOnRelease: TriggerOnRelease {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TRIGGERONRELEASE";
+            bindings =
+                <&kp>,
+                <&none>;
+
+            #binding-cells = <2>;
+            hold-trigger-key-positions = <15>;
+            hold-trigger-on-release;
+            tapping-term-ms = <200>;
+        };
     };
 
     keymap {
