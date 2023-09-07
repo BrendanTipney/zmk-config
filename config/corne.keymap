@@ -24,12 +24,7 @@
 
         PreviousApp {
             bindings = <&kp LA(TAB)>;
-            key-positions = <15 16>;
-        };
-
-        NextApp {
-            bindings = <&kp LA(LS(TAB))>;
-            key-positions = <13 14>;
+            key-positions = <15 16 14>;
         };
 
         CtrlAltDelete {
@@ -266,6 +261,15 @@
             >;
 
             label = "Media";
+        };
+
+        layer_5 {
+            bindings = <
+&none  &none  &none        &none         &none    &none     &none   &none   &none   &none  &none  &none
+&none  &none  &kp LS(TAB)  &kp LEFT_ALT  &kp TAB  &none     &none   &none   &none   &none  &none  &none
+&none  &none  &none        &none         &none    &none     &none   &none   &none   &none  &none  &none
+                           &trans        &trans   &trans    &trans  &trans  &trans
+            >;
         };
     };
 };
