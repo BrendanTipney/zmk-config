@@ -263,13 +263,15 @@
             label = "Media";
         };
 
-        layer_5 {
+        AppSwitcher {
             bindings = <
 &none  &none  &none        &none         &none    &none     &none   &none   &none   &none  &none  &none
 &none  &none  &kp LS(TAB)  &kp LEFT_ALT  &kp TAB  &none     &none   &none   &none   &none  &none  &none
 &none  &none  &none        &none         &none    &none     &none   &none   &none   &none  &none  &none
                            &trans        &trans   &trans    &trans  &trans  &trans
             >;
+
+            label = "AppSwitcher";
         };
     };
 };
