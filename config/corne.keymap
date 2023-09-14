@@ -14,12 +14,7 @@
 
         Tab {
             bindings = <&kp TAB>;
-            key-positions = <0 1>;
-        };
-
-        Enter {
-            bindings = <&kp ENTER>;
-            key-positions = <16 38>;
+            key-positions = <1 2>;
         };
 
         AppSwitcher {
