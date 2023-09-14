@@ -17,11 +17,6 @@
             key-positions = <1 2>;
         };
 
-        AppSwitcher {
-            bindings = <&AppSwitcherEngage>;
-            key-positions = <15 16 14>;
-        };
-
         CtrlAltDelete {
             bindings = <&kp LC(LA(DELETE))>;
             key-positions = <1 13 25>;
@@ -80,16 +75,6 @@
         PageDown {
             bindings = <&kp PAGE_DOWN>;
             key-positions = <16 28>;
-        };
-
-        EndOfPage {
-            bindings = <&kp LC(END)>;
-            key-positions = <17 16 15 38>;
-        };
-
-        StartOfPage {
-            bindings = <&kp LC(HOME)>;
-            key-positions = <15 14 13 38>;
         };
 
         OpenApp {
