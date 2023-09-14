@@ -223,10 +223,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&none  &kp Q    &kp W    &kp E          &kp R                 &kp T                 &kp Y     &kp U  &kp I        &kp O    &kp P     &none
-&none  &lt 1 A  &lt 4 S  &mt LCTRL D    &kp F                 &kp G                 &kp H     &kp J  &mt RCTRL K  &kp L    &kp SEMI  &none
-&none  &kp Z    &kp X    &kp C          &kp V                 &kp B                 &kp N     &kp M  &kp COMMA    &kp DOT  &kp FSLH  &none
-                         &kp BACKSPACE  &mt LEFT_SHIFT SPACE  &mt LEFT_ALT ENTER    &kp LWIN  &mo 2  &key_repeat
+&none  &kp Q    &kp W    &kp E        &kp R                 &kp T                 &kp Y     &kp U  &kp I        &kp O    &kp P     &none
+&none  &lt 1 A  &lt 4 S  &mt LCTRL D  &kp F                 &kp G                 &kp H     &kp J  &mt RCTRL K  &kp L    &kp SEMI  &none
+&none  &kp Z    &kp X    &kp C        &kp V                 &kp B                 &kp N     &kp M  &kp COMMA    &kp DOT  &kp FSLH  &none
+                         &kp LCTRL    &mt LEFT_SHIFT SPACE  &mt LEFT_ALT ENTER    &kp LWIN  &mo 2  &key_repeat
             >;
         };
 
