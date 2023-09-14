@@ -129,7 +129,7 @@
 
         Backspace {
             bindings = <&kp BACKSPACE>;
-            key-positions = <14 13>;
+            key-positions = <14 15>;
         };
 
         Delete {
