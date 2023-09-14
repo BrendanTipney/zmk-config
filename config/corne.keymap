@@ -42,29 +42,9 @@
             key-positions = <28 27 26>;
         };
 
-        NextDesktop {
-            bindings = <&kp LC(LG(RIGHT))>;
-            key-positions = <4 16 28>;
-        };
-
-        PreviousDesktop {
-            bindings = <&kp LG(LC(LEFT))>;
-            key-positions = <2 14 26>;
-        };
-
         AppView {
             bindings = <&kp LG(TAB)>;
             key-positions = <13 14 15 16>;
-        };
-
-        End {
-            bindings = <&kp END>;
-            key-positions = <17 16 15>;
-        };
-
-        Home {
-            bindings = <&kp HOME>;
-            key-positions = <14 13 15>;
         };
 
         PageUp {
@@ -124,7 +104,7 @@
 
         Escape {
             bindings = <&kp ESC>;
-            key-positions = <1 2 3 4 5>;
+            key-positions = <1 2 3 4>;
         };
     };
 
