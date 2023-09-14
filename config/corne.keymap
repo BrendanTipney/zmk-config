@@ -29,7 +29,7 @@
 
         CtrlAltDelete {
             bindings = <&kp LC(LA(DELETE))>;
-            key-positions = <0 12 24>;
+            key-positions = <1 13 25>;
         };
 
         MoveWindowRight {
@@ -44,7 +44,7 @@
 
         Maximize {
             bindings = <&kp LG(UP_ARROW)>;
-            key-positions = <1 2 3>;
+            key-positions = <2 3 4>;
         };
 
         Minimize {
