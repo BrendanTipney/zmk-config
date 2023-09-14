@@ -259,9 +259,9 @@
 
         Utility {
             bindings = <
-&none  &kp LG(LS(T))  &kp F7  &kp F8  &kp F9  &kp F10    &kp K_SCROLL_UP    &none         &kp UP_ARROW  &kp PAGE_UP    &kp HOME  &none
-&none  &kp LG(LS(S))  &kp F4  &kp F5  &kp F6  &kp F11    &kp K_SCROLL_DOWN  &kp LEFT      &kp DOWN      &kp RIGHT      &kp END   &none
-&none  &kp LG(LS(C))  &kp F1  &kp F2  &kp F3  &kp F12    &bt BT_SEL 0       &bt BT_SEL 1  &bt BT_SEL 2  &kp PAGE_DOWN  &none     &none
+&none  &kp LG(LS(T))  &kp F7  &kp F8  &kp F9  &kp F10    &kp K_SCROLL_UP    &none         &kp UP_ARROW  &kp PAGE_UP    &kp HOME    &none
+&none  &kp LG(LS(S))  &kp F4  &kp F5  &kp F6  &kp F11    &kp K_SCROLL_DOWN  &kp LEFT      &kp DOWN      &kp RIGHT      &kp END     &none
+&none  &kp LG(LS(C))  &kp F1  &kp F2  &kp F3  &kp F12    &bt BT_SEL 0       &bt BT_SEL 1  &bt BT_SEL 2  &kp PAGE_DOWN  &bt BT_CLR  &none
                               &trans  &trans  &trans     &trans             &trans        &trans
             >;
 
