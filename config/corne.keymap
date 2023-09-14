@@ -99,22 +99,12 @@
 
         PageUp {
             bindings = <&kp PAGE_UP>;
-            key-positions = <4 16 38>;
+            key-positions = <4 16>;
         };
 
         PageDown {
             bindings = <&kp PAGE_DOWN>;
-            key-positions = <16 28 38>;
-        };
-
-        ScrollUp {
-            bindings = <&kp K_SCROLL_UP>;
-            key-positions = <4 16>;
-        };
-
-        ScrollDown {
-            bindings = <&kp K_SCROLL_DOWN>;
-            key-positions = <28 16>;
+            key-positions = <16 28>;
         };
 
         EndOfPage {
@@ -162,14 +152,14 @@
             key-positions = <32 33>;
         };
 
-        NumberLayerSticky {
-            bindings = <&sl 1>;
+        Backspace {
+            bindings = <&kp BACKSPACE>;
             key-positions = <2 16>;
         };
 
-        NumberLayerToggle {
-            bindings = <&tog 1>;
-            key-positions = <28 2>;
+        Delete {
+            bindings = <&kp DELETE>;
+            key-positions = <3 16>;
         };
 
         Escape {
