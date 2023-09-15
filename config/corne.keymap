@@ -229,13 +229,24 @@
 
         Gaming {
             bindings = <
-&trans  &kp TAB    &kp Q  &kp W   &kp E      &kp R        &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans     &kp A  &kp S   &kp D      &kp F        &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LSHFT  &kp Z  &kp X   &kp C      &kp V        &trans  &trans  &trans  &trans  &trans  &trans
-                          &trans  &kp LCTRL  &kp SPACE    &trans  &trans  &trans
+&trans  &kp TAB    &kp Q  &kp W  &kp E      &kp R        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &mo 6      &kp A  &kp S  &kp D      &kp F        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LSHFT  &kp Z  &kp X  &kp C      &kp V        &trans  &trans  &trans  &trans  &trans  &trans
+                          &kp G  &kp LCTRL  &kp SPACE    &trans  &trans  &trans
             >;
 
             label = "Gaming";
+        };
+
+        Gaming_Num {
+            bindings = <
+&trans  &trans  &kp N1  &kp N2  &kp N3  &kp N4    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &kp N5  &kp N6  &kp N7  &kp N8    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &kp N9  &kp N0  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+
+            label = "Gaming_Num";
         };
     };
 };
