@@ -29,7 +29,7 @@
 
         MoveWindowLeft {
             bindings = <&kp LG(LEFT)>;
-            key-positions = <2 1>;
+            key-positions = <2 3>;
         };
 
         Maximize {
