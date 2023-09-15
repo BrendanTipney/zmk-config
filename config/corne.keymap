@@ -115,7 +115,7 @@
             #binding-cells = <0>;
             bindings =
                 <&macro_press>,
-                <&tog 5 &kp LA(TAB)>;
+                <&tog 4 &kp LA(TAB)>;
         };
         AppSwitcherDisengage: AppSwitcherDisengage {
             compatible = "zmk,behavior-macro";
@@ -124,7 +124,7 @@
             bindings =
                 <&kp LEFT_ALT>,
                 <&macro_pause_for_release>,
-                <&tog 5>;
+                <&tog 4>;
         };
     };
 
@@ -166,8 +166,8 @@
 
             bindings = <
 &none  &kp Q    &kp W    &kp E         &kp R                 &kp T                     &kp Y     &kp U  &kp I        &kp O    &kp P     &none
-&none  &lt 1 A  &lt 4 S  &kp D         &kp F                 &kp G                     &kp H     &kp J  &mt RCTRL K  &kp L    &kp SEMI  &none
-&none  &lt 6 Z  &kp X    &kp C         &kp V                 &kp B                     &kp N     &kp M  &kp COMMA    &kp DOT  &kp FSLH  &none
+&none  &lt 1 A  &lt 3 S  &kp D         &kp F                 &kp G                     &kp H     &kp J  &mt RCTRL K  &kp L    &kp SEMI  &none
+&none  &lt 5 Z  &kp X    &kp C         &kp V                 &kp B                     &kp N     &kp M  &kp COMMA    &kp DOT  &kp FSLH  &none
                          &kp LEFT_ALT  &mt LEFT_SHIFT SPACE  &mt LEFT_CONTROL ENTER    &kp LWIN  &mo 2  &key_repeat
             >;
         };
@@ -191,24 +191,13 @@
 
         Utility {
             bindings = <
-&none  &kp LG(LS(T))  &kp F7  &kp F8  &kp F9  &kp F10    &kp K_SCROLL_UP    &none         &kp UP_ARROW  &kp PAGE_UP    &kp HOME    &none
-&none  &kp LG(LS(S))  &kp F4  &kp F5  &kp F6  &kp F11    &kp K_SCROLL_DOWN  &kp LEFT      &kp DOWN      &kp RIGHT      &kp END     &none
-&none  &kp LG(LS(C))  &kp F1  &kp F2  &kp F3  &kp F12    &bt BT_SEL 0       &bt BT_SEL 1  &bt BT_SEL 2  &kp PAGE_DOWN  &bt BT_CLR  &none
-                              &trans  &trans  &trans     &trans             &trans        &trans
+&none  &kp LG(LS(T))  &kp F7  &kp F8  &kp F9  &kp F10    &none         &none         &kp UP_ARROW  &kp PAGE_UP    &none       &none
+&none  &kp LG(LS(S))  &kp F4  &kp F5  &kp F6  &kp F11    &kp HOME      &kp LEFT      &kp DOWN      &kp RIGHT      &kp END     &none
+&none  &kp LG(LS(C))  &kp F1  &kp F2  &kp F3  &kp F12    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &kp PAGE_DOWN  &bt BT_CLR  &none
+                              &trans  &trans  &trans     &trans        &trans        &trans
             >;
 
             label = "Utility";
-        };
-
-        TopNumbers {
-            bindings = <
-&trans  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5    &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &trans
-&trans  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5    &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
-            >;
-
-            label = "TopNumbers";
         };
 
         Media {
