@@ -171,7 +171,7 @@
 
             bindings = <
 &none  &kp Q    &kp W    &kp F         &kp P                 &kp G                     &kp J     &kp L  &kp U        &kp Y    &kp SEMICOLON  &none
-&none  &lt 1 A  &lt 3 S  &kp R         &kp T                 &kp D                     &kp H     &kp N  &mt RCTRL E  &kp I    &kp O          &none
+&none  &lt 1 A  &lt 3 R  &kp R         &kp S                 &kp D                     &kp H     &kp N  &mt RCTRL E  &kp I    &kp O          &none
 &none  &lt 4 Z  &kp X    &kp C         &kp V                 &kp B                     &kp K     &kp M  &kp COMMA    &kp DOT  &kp FSLH       &none
                          &kp LEFT_ALT  &mt LEFT_SHIFT SPACE  &mt LEFT_CONTROL ENTER    &kp LWIN  &mo 2  &key_repeat
             >;
