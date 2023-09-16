@@ -111,6 +111,11 @@
             bindings = <&tog 5>;
             key-positions = <28 27 26 25>;
         };
+
+        Numlock {
+            bindings = <&tog 1>;
+            key-positions = <2 28>;
+        };
     };
 
     macros {
