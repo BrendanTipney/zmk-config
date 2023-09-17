@@ -271,10 +271,10 @@
 
         Right_Hand_Swap {
             bindings = <
-&trans  &kp J  &kp L  &kp U      &kp Y    &kp SEMI    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp H  &kp N  &kp E      &kp I    &kp O       &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp K  &kp M  &kp COMMA  &kp DOT  &kp FSLH    &trans  &trans  &trans  &trans  &trans  &trans
-                      &trans     &trans   &trans      &trans  &trans  &trans
+&trans  &kp SEMI  &kp Y    &kp U      &kp L   &kp J     &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp O     &kp I    &kp E      &kp N   &kp H     &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp FSLH  &kp DOT  &kp COMMA  &kp M   &kp K     &trans  &trans  &trans  &trans  &trans  &trans
+                           &trans     &trans  &trans    &trans  &trans  &trans
             >;
         };
 
