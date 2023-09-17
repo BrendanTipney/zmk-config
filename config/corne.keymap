@@ -254,7 +254,7 @@
             label = "Gaming_Num";
         };
 
-        layer_7 {
+        Right_Hand_Swap {
             bindings = <
 &trans  &kp J  &kp L  &kp U      &kp Y    &kp SEMI    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &kp H  &kp N  &kp E      &kp I    &kp O       &trans  &trans  &trans  &trans  &trans  &trans
