@@ -162,6 +162,16 @@
             hold-trigger-on-release;
             tapping-term-ms = <200>;
         };
+        Right_Hand: Right_Hand {
+            compatible = "zmk,behavior-tap-dance";
+            label = "RIGHT_HAND";
+            #binding-cells = <0>;
+            bindings =
+                <&kp T>,
+                <&kp N>;
+
+            tapping-term-ms = <100>;
+        };
     };
 
     keymap {
