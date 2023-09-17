@@ -109,12 +109,17 @@
 
         Gaming {
             bindings = <&tog 5>;
-            key-positions = <28 27 26 25>;
+            key-positions = <14 15 16 3>;
         };
 
         Numlock {
             bindings = <&tog 1>;
             key-positions = <2 28>;
+        };
+
+        One_Hand_Mode {
+            bindings = <&tog 8>;
+            key-positions = <4 26>;
         };
     };
 
@@ -187,7 +192,7 @@
             bindings = <
 &none  &kp Q    &kp W    &kp F         &kp P                 &kp G                     &kp J     &kp L  &kp U        &kp Y    &kp SEMICOLON  &none
 &none  &lt 1 A  &lt 3 S  &kp R         &kp T                 &kp D                     &kp H     &kp N  &mt RCTRL E  &kp I    &kp O          &none
-&none  &lt 4 Z  &kp X    &kp C         &kp V                 &kp B                     &kp K     &kp M  &kp COMMA    &kp DOT  &kp FSLH       &none
+&none  &lt 4 Z  &kp X    &kp C         &kp V                 &mt LCTRL B               &kp K     &kp M  &kp COMMA    &kp DOT  &kp FSLH       &none
                          &kp LEFT_ALT  &mt LEFT_SHIFT SPACE  &mt LEFT_CONTROL ENTER    &kp LWIN  &mo 2  &key_repeat
             >;
         };
@@ -270,6 +275,15 @@
 &trans  &kp H  &kp N  &kp E      &kp I    &kp O       &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &kp K  &kp M  &kp COMMA  &kp DOT  &kp FSLH    &trans  &trans  &trans  &trans  &trans  &trans
                       &trans     &trans   &trans      &trans  &trans  &trans
+            >;
+        };
+
+        layer_8 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &lt 7 ENTER    &trans  &trans  &trans
             >;
         };
     };
