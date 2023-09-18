@@ -177,6 +177,12 @@
 
             tapping-term-ms = <100>;
         };
+        DoubleTap_CTRL: DoubleTap_CTRL {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DOUBLETAP_CTRL";
+            #binding-cells = <0>;
+            bindings = <&kp LCTRL>;
+        };
     };
 
     keymap {
