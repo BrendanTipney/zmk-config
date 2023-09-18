@@ -119,7 +119,7 @@
 
         One_Hand_Mode {
             bindings = <&tog 8>;
-            key-positions = <4 26>;
+            key-positions = <14 16>;
         };
     };
 
