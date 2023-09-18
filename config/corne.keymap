@@ -126,6 +126,11 @@
             bindings = <&kp ENTER>;
             key-positions = <23 22>;
         };
+
+        Right_Hand_BKSPC {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <11 10>;
+        };
     };
 
     macros {
