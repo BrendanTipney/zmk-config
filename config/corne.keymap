@@ -121,6 +121,11 @@
             bindings = <&tog 7>;
             key-positions = <14 16>;
         };
+
+        Right_Side_Enter {
+            bindings = <&kp ENTER>;
+            key-positions = <23 22>;
+        };
     };
 
     macros {
