@@ -181,7 +181,9 @@
             compatible = "zmk,behavior-tap-dance";
             label = "DOUBLETAP_CTRL";
             #binding-cells = <0>;
-            bindings = <&kp LCTRL>;
+            bindings =
+                <&kp ENTER>,
+                <&kp LCTRL>;
         };
     };
 
@@ -275,10 +277,10 @@
 
         layer_8 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &lt 6 ENTER    &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans             &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans             &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans             &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &DoubleTap_CTRL    &trans  &trans  &trans
             >;
         };
     };
