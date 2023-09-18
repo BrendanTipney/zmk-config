@@ -118,7 +118,7 @@
         };
 
         One_Hand_Mode {
-            bindings = <&tog 8>;
+            bindings = <&tog 7>;
             key-positions = <14 16>;
         };
     };
@@ -191,9 +191,9 @@
 
             bindings = <
 &none  &kp Q    &kp W    &kp F         &kp P                 &kp G                     &kp J     &kp L  &kp U        &kp Y    &kp SEMICOLON  &none
-&none  &lt 1 A  &lt 3 S  &kp R         &kp T                 &kp D                     &kp H     &kp N  &mt RCTRL E  &kp I    &kp O          &none
+&none  &lt 1 A  &lt 2 S  &kp R         &kp T                 &kp D                     &kp H     &kp N  &mt RCTRL E  &kp I    &kp O          &none
 &none  &lt 4 Z  &kp X    &kp C         &kp V                 &mt LCTRL B               &kp K     &kp M  &kp COMMA    &kp DOT  &kp FSLH       &none
-                         &kp LEFT_ALT  &mt LEFT_SHIFT SPACE  &mt LEFT_CONTROL ENTER    &kp LWIN  &mo 2  &key_repeat
+                         &kp LEFT_ALT  &mt LEFT_SHIFT SPACE  &mt LEFT_CONTROL ENTER    &kp LWIN  &mo 3  &key_repeat
             >;
         };
 
@@ -214,17 +214,6 @@
             label = "NumSym";
         };
 
-        Utility {
-            bindings = <
-&none  &kp LG(LS(T))  &kp F7  &kp F8  &kp F9  &kp F10    &bt BT_CLR    &none         &kp UP_ARROW  &kp PAGE_UP   &none         &none
-&none  &kp LG(LS(S))  &kp F4  &kp F5  &kp F6  &kp F11    &kp HOME      &kp LEFT      &kp DOWN      &kp RIGHT     &kp END       &none
-&none  &kp LG(LS(C))  &kp F1  &kp F2  &kp F3  &kp F12    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none
-                              &trans  &trans  &trans     &trans        &trans        &trans
-            >;
-
-            label = "Utility";
-        };
-
         Media {
             bindings = <
 &trans  &trans            &trans      &kp K_CALCULATOR     &kp C_VOLUME_UP    &trans           &trans  &trans  &trans  &trans  &trans  &trans
@@ -234,6 +223,17 @@
             >;
 
             label = "Media";
+        };
+
+        Utility {
+            bindings = <
+&none  &kp LG(LS(T))  &kp F7  &kp F8  &kp F9  &kp F10    &bt BT_CLR    &none         &kp UP_ARROW  &kp PAGE_UP   &none         &none
+&none  &kp LG(LS(S))  &kp F4  &kp F5  &kp F6  &kp F11    &kp HOME      &kp LEFT      &kp DOWN      &kp RIGHT     &kp END       &none
+&none  &kp LG(LS(C))  &kp F1  &kp F2  &kp F3  &kp F12    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none
+                              &trans  &trans  &trans     &trans        &trans        &trans
+            >;
+
+            label = "Utility";
         };
 
         arrows {
@@ -250,23 +250,12 @@
         Gaming {
             bindings = <
 &trans  &kp TAB    &kp Q  &kp W  &kp E      &kp R        &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &mo 6      &kp A  &kp S  &kp D      &kp F        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &mo 1      &kp A  &kp S  &kp D      &kp F        &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &kp LSHFT  &kp Z  &kp X  &kp C      &kp V        &trans  &trans  &trans  &trans  &trans  &trans
                           &kp G  &kp LCTRL  &kp SPACE    &trans  &trans  &trans
             >;
 
             label = "Gaming";
-        };
-
-        Gaming_Num {
-            bindings = <
-&trans  &trans  &kp N1  &kp N2  &kp N3  &kp N4    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &kp N5  &kp N6  &kp N7  &kp N8    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &kp N9  &kp N0  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
-            >;
-
-            label = "Gaming_Num";
         };
 
         Right_Hand_Swap {
@@ -283,7 +272,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &lt 7 ENTER    &trans  &trans  &trans
+                        &trans  &trans  &lt 6 ENTER    &trans  &trans  &trans
             >;
         };
     };
