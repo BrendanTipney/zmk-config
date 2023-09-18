@@ -185,6 +185,16 @@
                 <&kp ENTER>,
                 <&kp LCTRL>;
         };
+        HoldDoubleTap: HoldDoubleTap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLDDOUBLETAP";
+            bindings =
+                <&mo>,
+                <&DoubleTap_CTRL>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
     };
 
     keymap {
@@ -277,10 +287,10 @@
 
         layer_8 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans             &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans             &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans             &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &DoubleTap_CTRL    &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &HoldDoubleTap 6 0    &trans  &trans  &trans
             >;
         };
     };
