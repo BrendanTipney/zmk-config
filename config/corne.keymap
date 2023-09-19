@@ -129,7 +129,7 @@
 
         Right_Hand_BKSPC {
             bindings = <&kp BACKSPACE>;
-            key-positions = <11 10>;
+            key-positions = <10 9>;
         };
     };
 
