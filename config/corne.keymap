@@ -124,7 +124,7 @@
 
         Right_Side_Enter {
             bindings = <&kp ENTER>;
-            key-positions = <23 22>;
+            key-positions = <22 21>;
         };
 
         Right_Hand_BKSPC {
