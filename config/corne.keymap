@@ -136,6 +136,16 @@
             bindings = <&Shut_Down>;
             key-positions = <4 2 15 26 28>;
         };
+
+        R_Shift {
+            bindings = <&kp RIGHT_SHIFT>;
+            key-positions = <34 33>;
+        };
+
+        R_Space {
+            bindings = <&kp SPACE>;
+            key-positions = <30 31 32>;
+        };
     };
 
     macros {
