@@ -131,25 +131,25 @@
             bindings = <&kp BACKSPACE>;
             key-positions = <10 9>;
         };
+
+        Shut_Down {
+            bindings = <&Shut_Down>;
+            key-positions = <4 2 15 26 28>;
+        };
     };
 
     macros {
-        AppSwitcherEngage: AppSwitcherEngage {
+        Shut_Down: Shut_Down {
             compatible = "zmk,behavior-macro";
-            label = "APPSWITCHERENGAGE";
+            label = "SHUT_DOWN";
             #binding-cells = <0>;
             bindings =
                 <&macro_press>,
-                <&tog 0 &kp LA(TAB)>;
-        };
-        AppSwitcherDisengage: AppSwitcherDisengage {
-            compatible = "zmk,behavior-macro";
-            label = "APPSWITCHERDISENGAGE";
-            #binding-cells = <0>;
-            bindings =
-                <&kp LEFT_ALT>,
-                <&macro_pause_for_release>,
-                <&tog 0>;
+                <&kp LG(X)>,
+                <&macro_wait_time 200>,
+                <&kp U>,
+                <&macro_wait_time 200>,
+                <&kp U>;
         };
     };
 
