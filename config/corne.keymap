@@ -231,7 +231,7 @@
 &none  &kp Q    &kp W    &kp F         &kp P                 &kp G                     &kp J     &kp L  &kp U        &kp Y    &kp SEMICOLON  &none
 &none  &lt 1 A  &lt 2 S  &lt 6 R       &lt 6 T               &kp D                     &kp H     &kp N  &mt RCTRL E  &kp I    &kp O          &none
 &none  &lt 4 Z  &kp X    &kp C         &kp V                 &mt LCTRL B               &kp K     &kp M  &kp COMMA    &kp DOT  &kp FSLH       &none
-                         &kp LEFT_ALT  &mt LEFT_SHIFT SPACE  &mt LEFT_CONTROL ENTER    &kp LWIN  &mo 3  &key_repeat
+                         &kp LEFT_ALT  &mt LEFT_SHIFT SPACE  &mt LEFT_CONTROL ENTER    &kp LWIN  &mo 3  &mo 8
             >;
         };
 
@@ -311,6 +311,15 @@
 &trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans
                         &trans  &trans  &lt 6 ENTER    &trans  &trans  &trans
+            >;
+        };
+
+        Right_Hand_Arrows {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans    &trans    &trans     &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans    &kp UP    &trans     &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
     };
