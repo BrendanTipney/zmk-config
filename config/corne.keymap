@@ -256,7 +256,7 @@
             bindings = <
 &trans  &trans            &trans      &kp K_CALCULATOR     &kp C_VOLUME_UP    &trans           &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans            &trans      &kp C_AL_SPELLCHECK  &kp C_VOLUME_DOWN  &trans           &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp C_PLAY_PAUSE  &kp K_PREV  &kp K_NEXT           &kp C_MUTE         &kp LG(LS(A))    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp C_PLAY_PAUSE  &kp C_PREV  &kp C_NEXT           &kp C_MUTE         &kp LG(LS(A))    &trans  &trans  &trans  &trans  &trans  &trans
                                       &trans               &trans             &kp LA(SPACE)    &trans  &trans  &trans
             >;
 
