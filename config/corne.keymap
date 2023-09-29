@@ -215,6 +215,15 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
+        DoubleTapPaste: DoubleTapPaste {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DOUBLETAPPASTE";
+            #binding-cells = <0>;
+            bindings =
+                <&kp V>,
+                <&kp LC(V)>,
+                <&kp LG(V)>;
+        };
     };
 
     keymap {
@@ -228,9 +237,9 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&none  &kp Q    &kp W    &kp F         &kp P                 &kp G                     &kp J     &kp L  &kp U        &kp Y    &kp SEMICOLON  &none
+&none  &lt 8 Q  &kp W    &kp F         &kp P                 &kp G                     &kp J     &kp L  &kp U        &kp Y    &kp SEMICOLON  &none
 &none  &lt 1 A  &lt 2 S  &lt 6 R       &lt 6 T               &kp D                     &kp H     &kp N  &mt RCTRL E  &kp I    &kp O          &none
-&none  &lt 4 Z  &kp X    &kp C         &kp V                 &mt LCTRL B               &kp K     &kp M  &kp COMMA    &kp DOT  &kp FSLH       &none
+&none  &lt 4 Z  &kp X    &kp C         &DoubleTapPaste       &mt LCTRL B               &kp K     &kp M  &kp COMMA    &kp DOT  &kp FSLH       &none
                          &kp LEFT_ALT  &mt LEFT_SHIFT SPACE  &mt LEFT_CONTROL ENTER    &kp LWIN  &mo 3  &mo 0
             >;
         };
