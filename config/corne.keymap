@@ -24,12 +24,12 @@
 
         MoveWindowRight {
             bindings = <&kp LG(RIGHT)>;
-            key-positions = <3 4>;
+            key-positions = <3 4 5>;
         };
 
         MoveWindowLeft {
             bindings = <&kp LG(LEFT)>;
-            key-positions = <2 3>;
+            key-positions = <2 3 1>;
         };
 
         Maximize {
@@ -118,7 +118,7 @@
         };
 
         One_Hand_Mode {
-            bindings = <&tog 7>;
+            bindings = <&kp LA(TAB)>;
             key-positions = <14 16>;
         };
 
