@@ -224,7 +224,7 @@
                 <&kp LC(V)>,
                 <&kp LG(V)>;
 
-            tapping-term-ms = <400>;
+            tapping-term-ms = <300>;
         };
         DoubleTapCopy: DoubleTapCopy {
             compatible = "zmk,behavior-tap-dance";
