@@ -117,9 +117,10 @@
             key-positions = <2 28>;
         };
 
-        One_Hand_Mode {
+        AppSwitch {
             bindings = <&kp LA(TAB)>;
             key-positions = <14 16>;
+            layers = <0 1>;
         };
 
         Right_Side_Enter {
