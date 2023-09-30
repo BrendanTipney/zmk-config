@@ -154,7 +154,7 @@
             label = "SHUT_DOWN";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
+                <&macro_tap>,
                 <&kp LG(X)>,
                 <&macro_wait_time 200>,
                 <&kp U>,
@@ -223,6 +223,17 @@
                 <&kp V>,
                 <&kp LC(V)>,
                 <&kp LG(V)>;
+
+            tapping-term-ms = <400>;
+        };
+        DoubleTapCopy: DoubleTapCopy {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DOUBLETAPCOPY";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings =
+                <&kp C>,
+                <&kp LC(C)>;
         };
     };
 
@@ -237,10 +248,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&none  &lt 8 Q  &kp W    &kp F         &kp P                 &kp G                     &kp J     &kp L  &kp U        &kp Y    &kp SEMICOLON  &none
-&none  &lt 1 A  &lt 2 S  &lt 6 R       &lt 6 T               &kp D                     &kp H     &kp N  &mt RCTRL E  &kp I    &kp O          &none
-&none  &lt 4 Z  &kp X    &kp C         &DoubleTapPaste       &mt LCTRL B               &kp K     &kp M  &kp COMMA    &kp DOT  &kp FSLH       &none
-                         &kp LEFT_ALT  &mt LEFT_SHIFT SPACE  &mt LEFT_CONTROL ENTER    &kp LWIN  &mo 3  &mo 0
+&none  &lt 8 Q  &kp W    &kp F           &kp P                 &kp G                     &kp J     &kp L  &kp U        &kp Y    &kp SEMICOLON  &none
+&none  &lt 1 A  &lt 2 S  &lt 6 R         &lt 6 T               &kp D                     &kp H     &kp N  &mt RCTRL E  &kp I    &kp O          &none
+&none  &lt 4 Z  &kp X    &DoubleTapCopy  &DoubleTapPaste       &mt LCTRL B               &kp K     &kp M  &kp COMMA    &kp DOT  &kp FSLH       &none
+                         &kp LEFT_ALT    &mt LEFT_SHIFT SPACE  &mt LEFT_CONTROL ENTER    &kp LWIN  &mo 3  &mo 0
             >;
         };
 
