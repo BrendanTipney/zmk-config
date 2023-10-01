@@ -135,7 +135,7 @@
 
         Shut_Down {
             bindings = <&Shut_Down>;
-            key-positions = <4 2 15 26 28>;
+            key-positions = <1 13 25>;
         };
 
         R_Shift {
@@ -161,76 +161,20 @@
     };
 
     behaviors {
-        HoldTapLayer: HoldTapLayer {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOLDTAPLAYER";
-            bindings =
-                <&mo>,
-                <&sl>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            hold-trigger-key-positions = <12>;
+        StickyKey: StickyKey {
+            compatible = "zmk,behavior-sticky-key";
+            label = "STICKYKEY";
+            bindings = <&kp>;
+            #binding-cells = <1>;
+            release-after-ms = <500>;
         };
-        TriggerOnRelease: TriggerOnRelease {
-            compatible = "zmk,behavior-hold-tap";
-            label = "TRIGGERONRELEASE";
-            bindings =
-                <&kp>,
-                <&none>;
-
-            #binding-cells = <2>;
-            hold-trigger-key-positions = <15>;
-            hold-trigger-on-release;
-            tapping-term-ms = <200>;
-        };
-        Right_Hand: Right_Hand {
+        StickyWinKey: StickyWinKey {
             compatible = "zmk,behavior-tap-dance";
-            label = "RIGHT_HAND";
+            label = "STICKYWINKEY";
             #binding-cells = <0>;
             bindings =
-                <&kp T>,
-                <&kp N>;
-
-            tapping-term-ms = <100>;
-        };
-        DoubleTap_CTRL: DoubleTap_CTRL {
-            compatible = "zmk,behavior-tap-dance";
-            label = "DOUBLETAP_CTRL";
-            #binding-cells = <0>;
-            bindings =
-                <&kp ENTER>,
-                <&kp LCTRL>;
-        };
-        HoldDoubleTap: HoldDoubleTap {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOLDDOUBLETAP";
-            bindings =
-                <&mo>,
-                <&DoubleTap_CTRL>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-        };
-        DoubleTapPaste: DoubleTapPaste {
-            compatible = "zmk,behavior-tap-dance";
-            label = "DOUBLETAPPASTE";
-            #binding-cells = <0>;
-            bindings =
-                <&kp V>,
-                <&kp LC(V)>,
-                <&kp LG(V)>;
-
-            tapping-term-ms = <300>;
-        };
-        DoubleTapCopy: DoubleTapCopy {
-            compatible = "zmk,behavior-tap-dance";
-            label = "DOUBLETAPCOPY";
-            #binding-cells = <0>;
-            tapping-term-ms = <300>;
-            bindings =
-                <&kp C>,
-                <&kp LC(C)>;
+                <&kp LEFT_ALT>,
+                <&StickyKey LEFT_WIN>;
         };
     };
 
@@ -245,10 +189,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&none  &lt 8 Q  &kp W    &kp F           &kp P                 &kp G                     &kp J     &kp L  &kp U        &kp Y    &kp SEMICOLON  &none
-&none  &lt 1 A  &lt 2 S  &lt 6 R         &lt 6 T               &kp D                     &kp H     &kp N  &mt RCTRL E  &kp I    &kp O          &none
-&none  &lt 4 Z  &kp X    &DoubleTapCopy  &DoubleTapPaste       &mt LCTRL B               &kp K     &kp M  &kp COMMA    &kp DOT  &kp FSLH       &none
-                         &kp LEFT_ALT    &mt LEFT_SHIFT SPACE  &mt LEFT_CONTROL ENTER    &kp LWIN  &mo 3  &mo 0
+&none  &lt 8 Q  &kp W    &kp F          &kp P                 &kp G                     &kp J     &kp L  &kp U        &kp Y    &kp SEMICOLON  &none
+&none  &lt 1 A  &lt 2 S  &lt 6 R        &lt 6 T               &kp D                     &kp H     &kp N  &mt RCTRL E  &kp I    &kp O          &none
+&none  &lt 4 Z  &kp X    &kp C          &kp V                 &mt LCTRL B               &kp K     &kp M  &kp COMMA    &kp DOT  &kp FSLH       &none
+                         &StickyWinKey  &mt LEFT_SHIFT SPACE  &mt LEFT_CONTROL ENTER    &kp LWIN  &mo 3  &mo 0
             >;
         };
 
