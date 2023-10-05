@@ -149,9 +149,7 @@
             compatible = "zmk,behavior-macro";
             label = "SHUT_DOWN";
             #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp LG(X) &kp U &kp U>;
+            bindings = <&macro_tap>, <&kp LG(X) &kp U &kp U>;
         };
     };
 
@@ -167,9 +165,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "STICKYWINKEY";
             #binding-cells = <0>;
-            bindings =
-                <&kp LEFT_ALT>,
-                <&StickyKey LEFT_WIN>;
+            bindings = <&kp LEFT_ALT>, <&StickyKey LEFT_WIN>;
         };
     };
 
@@ -232,10 +228,10 @@
 
         arrows {
             bindings = <
-&trans  &trans  &trans                   &kp UP    &trans                   &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &kp LEFT                 &kp DOWN  &kp RIGHT                &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &mt HOME LC(LEFT_ARROW)  &trans    &mt END LC(RIGHT_ARROW)  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                                         &trans    &trans                   &trans    &trans  &trans  &trans
+&trans  &trans    &trans                   &kp UP    &trans                   &trans     &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp HOME  &kp LEFT                 &kp DOWN  &kp RIGHT                &kp END    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans    &mt HOME LC(LEFT_ARROW)  &trans    &mt END LC(RIGHT_ARROW)  &trans     &trans  &trans  &trans  &trans  &trans  &trans
+                                           &trans    &trans                   &trans     &trans  &trans  &trans
             >;
 
             label = "arrows";
