@@ -17,11 +17,6 @@
             key-positions = <13 14>;
         };
 
-        CtrlAltDelete {
-            bindings = <&kp LC(LA(DELETE))>;
-            key-positions = <1 13 25>;
-        };
-
         MoveWindowRight {
             bindings = <&kp LG(RIGHT)>;
             key-positions = <3 4 5>;
@@ -135,7 +130,7 @@
 
         Shut_Down {
             bindings = <&Shut_Down>;
-            key-positions = <1 13 25>;
+            key-positions = <1 25 13>;
         };
 
         R_Shift {
