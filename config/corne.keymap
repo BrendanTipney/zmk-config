@@ -39,7 +39,7 @@
 
         AppView {
             bindings = <&kp LA(TAB)>;
-            key-positions = <13 14 15 16>;
+            key-positions = <14 15 16>;
         };
 
         PageUp {
@@ -54,7 +54,7 @@
 
         OpenApp {
             bindings = <&kp LA(SPACE)>;
-            key-positions = <16 15 14>;
+            key-positions = <16 15 14 13>;
         };
 
         Brace {
@@ -124,7 +124,7 @@
 
         Shut_Down {
             bindings = <&Shut_Down>;
-            key-positions = <1 25 13>;
+            key-positions = <1 25 14 27>;
         };
 
         R_Shift {
