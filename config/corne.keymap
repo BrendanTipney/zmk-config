@@ -90,13 +90,13 @@
         Backspace {
             bindings = <&kp BACKSPACE>;
             key-positions = <14 15>;
-            layers = <0 5 2 6 5 3>;
+            layers = <0 7 1 7 7 2>;
         };
 
         Delete {
             bindings = <&kp DELETE>;
             key-positions = <16 15>;
-            layers = <0 2 5 6 5 3 7>;
+            layers = <0 1 7 7 7 2 8>;
         };
 
         Escape {
@@ -105,12 +105,12 @@
         };
 
         Gaming {
-            bindings = <&tog 1>;
+            bindings = <&tog 6>;
             key-positions = <16 14 13>;
         };
 
         Numlock {
-            bindings = <&tog 2>;
+            bindings = <&tog 1>;
             key-positions = <2 28>;
         };
 
@@ -176,22 +176,11 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&none  &lt 7 Q  &kp W    &kp F          &kp P                 &kp G                     &kp J            &kp L                  &kp U          &kp Y    &kp SEMICOLON  &none
-&none  &lt 2 A  &lt 5 S  &lt 3 R        &lt 3 T               &kp D                     &kp H            &lt 3 N                &lt 3 E        &kp I    &kp O          &none
-&none  &lt 5 Z  &kp X    &kp C          &kp V                 &kp B                     &kp K            &kp M                  &kp COMMA      &kp DOT  &kp FSLH       &none
+&none  &lt 8 Q  &kp W    &kp F          &kp P                 &kp G                     &kp J            &kp L                  &kp U          &kp Y    &kp SEMICOLON  &none
+&none  &lt 1 A  &lt 7 S  &lt 2 R        &lt 2 T               &kp D                     &kp H            &lt 2 N                &lt 2 E        &kp I    &kp O          &none
+&none  &lt 7 Z  &kp X    &kp C          &kp V                 &kp B                     &kp K            &kp M                  &kp COMMA      &kp DOT  &kp FSLH       &none
                          &StickyWinKey  &mt LEFT_SHIFT SPACE  &mt LEFT_CONTROL ENTER    &mt RCTRL ENTER  &mt RIGHT_SHIFT SPACE  &StickyWinKey
             >;
-        };
-
-        Gaming {
-            bindings = <
-&trans  &mo 2           &kp Q  &kp W  &kp E  &kp R        &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LEFT_SHIFT  &kp A  &kp S  &kp D  &kp F        &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LCTRL       &kp Z  &kp X  &kp C  &kp V        &trans  &trans  &trans  &trans  &trans  &trans
-                               &kp T  &kp G  &kp SPACE    &trans  &trans  &trans
-            >;
-
-            label = "Gaming";
         };
 
         NumSym {
@@ -228,6 +217,26 @@
 &trans  &kp O     &kp I    &kp E      &kp N   &kp H     &kp D            &kp T                  &kp R          &kp S  &kp A  &trans
 &trans  &kp FSLH  &kp DOT  &kp COMMA  &kp M   &kp K     &kp B            &kp V                  &kp C          &kp X  &kp Z  &trans
                            &trans     &trans  &trans    &mt RCTRL ENTER  &mt RIGHT_SHIFT SPACE  &kp RIGHT_ALT
+            >;
+        };
+
+        Gaming {
+            bindings = <
+&trans  &mo 5           &kp Q  &kp W  &kp E  &kp R        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LEFT_SHIFT  &kp A  &kp S  &kp D  &kp F        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LCTRL       &kp Z  &kp X  &kp C  &kp V        &trans  &trans  &trans  &trans  &trans  &trans
+                               &kp T  &kp G  &kp SPACE    &trans  &trans  &trans
+            >;
+
+            label = "Gaming";
+        };
+
+        GamingNum {
+            bindings = <
+&trans  &trans  &kp N1  &kp N2  &kp N3  &kp N4    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &kp N5  &kp N6  &kp N7  &kp N8    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &kp N9  &kp N0  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
 
