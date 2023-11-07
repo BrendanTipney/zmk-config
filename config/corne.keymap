@@ -90,13 +90,13 @@
         Backspace {
             bindings = <&kp BACKSPACE>;
             key-positions = <14 15>;
-            layers = <0 2 1 3 4 6 7>;
+            layers = <0 5 2 6 5 3>;
         };
 
         Delete {
             bindings = <&kp DELETE>;
             key-positions = <16 15>;
-            layers = <0 1 2 3 4 6 7 8>;
+            layers = <0 2 5 6 5 3 7>;
         };
 
         Escape {
@@ -105,12 +105,12 @@
         };
 
         Gaming {
-            bindings = <&tog 5>;
+            bindings = <&tog 1>;
             key-positions = <16 14 13>;
         };
 
         Numlock {
-            bindings = <&tog 1>;
+            bindings = <&tog 2>;
             key-positions = <2 28>;
         };
 
@@ -176,11 +176,22 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&none  &lt 8 Q  &kp W    &kp F          &kp P                 &kp G                     &kp J            &kp L                  &kp U          &kp Y    &kp SEMICOLON  &none
-&none  &lt 1 A  &lt 2 S  &lt 6 R        &lt 6 T               &kp D                     &kp H            &lt 6 N                &lt 6 E        &kp I    &kp O          &none
-&none  &lt 4 Z  &kp X    &kp C          &kp V                 &kp B                     &kp K            &kp M                  &kp COMMA      &kp DOT  &kp FSLH       &none
+&none  &lt 7 Q  &kp W    &kp F          &kp P                 &kp G                     &kp J            &kp L                  &kp U          &kp Y    &kp SEMICOLON  &none
+&none  &lt 2 A  &lt 5 S  &lt 3 R        &lt 3 T               &kp D                     &kp H            &lt 3 N                &lt 3 E        &kp I    &kp O          &none
+&none  &lt 5 Z  &kp X    &kp C          &kp V                 &kp B                     &kp K            &kp M                  &kp COMMA      &kp DOT  &kp FSLH       &none
                          &StickyWinKey  &mt LEFT_SHIFT SPACE  &mt LEFT_CONTROL ENTER    &mt RCTRL ENTER  &mt RIGHT_SHIFT SPACE  &StickyWinKey
             >;
+        };
+
+        Gaming {
+            bindings = <
+&trans  &mo 2           &kp Q  &kp W  &kp E  &kp R        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LEFT_SHIFT  &kp A  &kp S  &kp D  &kp F        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LCTRL       &kp Z  &kp X  &kp C  &kp V        &trans  &trans  &trans  &trans  &trans  &trans
+                               &kp T  &kp G  &kp SPACE    &trans  &trans  &trans
+            >;
+
+            label = "Gaming";
         };
 
         NumSym {
@@ -198,6 +209,26 @@
             >;
 
             label = "NumSym";
+        };
+
+        arrows {
+            bindings = <
+&trans  &trans  &kp HOME                 &kp UP    &kp END                  &kp PAGE_UP      &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &kp LEFT                 &kp DOWN  &kp RIGHT                &kp PAGE_DOWN    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &mt HOME LC(LEFT_ARROW)  &trans    &mt END LC(RIGHT_ARROW)  &trans           &trans  &trans  &trans  &trans  &trans  &trans
+                                         &trans    &trans                   &trans           &trans  &trans  &trans
+            >;
+
+            label = "arrows";
+        };
+
+        Hand_Swap {
+            bindings = <
+&trans  &kp SEMI  &kp Y    &kp U      &kp L   &kp J     &kp G            &kp P                  &kp F          &kp W  &kp Q  &trans
+&trans  &kp O     &kp I    &kp E      &kp N   &kp H     &kp D            &kp T                  &kp R          &kp S  &kp A  &trans
+&trans  &kp FSLH  &kp DOT  &kp COMMA  &kp M   &kp K     &kp B            &kp V                  &kp C          &kp X  &kp Z  &trans
+                           &trans     &trans  &trans    &mt RCTRL ENTER  &mt RIGHT_SHIFT SPACE  &kp RIGHT_ALT
+            >;
         };
 
         Media {
@@ -220,46 +251,6 @@
             >;
 
             label = "Utility";
-        };
-
-        arrows {
-            bindings = <
-&trans  &trans  &kp HOME                 &kp UP    &kp END                  &kp PAGE_UP      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &kp LEFT                 &kp DOWN  &kp RIGHT                &kp PAGE_DOWN    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &mt HOME LC(LEFT_ARROW)  &trans    &mt END LC(RIGHT_ARROW)  &trans           &trans  &trans  &trans  &trans  &trans  &trans
-                                         &trans    &trans                   &trans           &trans  &trans  &trans
-            >;
-
-            label = "arrows";
-        };
-
-        Gaming {
-            bindings = <
-&trans  &sl 1           &kp Q  &kp W  &kp E  &kp R        &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LEFT_SHIFT  &kp A  &kp S  &kp D  &kp F        &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LCTRL       &kp Z  &kp X  &kp C  &kp V        &trans  &trans  &trans  &trans  &trans  &trans
-                               &kp T  &kp G  &kp SPACE    &trans  &trans  &trans
-            >;
-
-            label = "Gaming";
-        };
-
-        Hand_Swap {
-            bindings = <
-&trans  &kp SEMI  &kp Y    &kp U      &kp L   &kp J     &kp G            &kp P                  &kp F          &kp W  &kp Q  &trans
-&trans  &kp O     &kp I    &kp E      &kp N   &kp H     &kp D            &kp T                  &kp R          &kp S  &kp A  &trans
-&trans  &kp FSLH  &kp DOT  &kp COMMA  &kp M   &kp K     &kp B            &kp V                  &kp C          &kp X  &kp Z  &trans
-                           &trans     &trans  &trans    &mt RCTRL ENTER  &mt RIGHT_SHIFT SPACE  &kp RIGHT_ALT
-            >;
-        };
-
-        Thumb_Swap {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &lt 6 ENTER    &trans  &trans  &trans
-            >;
         };
 
         BlueTooth {
