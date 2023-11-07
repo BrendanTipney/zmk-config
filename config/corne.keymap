@@ -176,10 +176,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&none  &lt 8 Q  &kp W    &kp F          &kp P                 &kp G                     &kp J     &kp L    &kp U      &kp Y    &kp SEMICOLON  &none
-&none  &lt 1 A  &lt 2 S  &lt 6 R        &lt 6 T               &kp D                     &kp H     &lt 6 N  &lt 6 E    &kp I    &kp O          &none
-&none  &lt 4 Z  &kp X    &kp C          &kp V                 &kp B                     &kp K     &kp M    &kp COMMA  &kp DOT  &kp FSLH       &none
-                         &StickyWinKey  &mt LEFT_SHIFT SPACE  &mt LEFT_CONTROL ENTER    &kp LWIN  &mo 3    &mo 0
+&none  &lt 8 Q  &kp W    &kp F          &kp P                 &kp G                     &kp J            &kp L                  &kp U          &kp Y    &kp SEMICOLON  &none
+&none  &lt 1 A  &lt 2 S  &lt 6 R        &lt 6 T               &kp D                     &kp H            &lt 6 N                &lt 6 E        &kp I    &kp O          &none
+&none  &lt 4 Z  &kp X    &kp C          &kp V                 &kp B                     &kp K            &kp M                  &kp COMMA      &kp DOT  &kp FSLH       &none
+                         &StickyWinKey  &mt LEFT_SHIFT SPACE  &mt LEFT_CONTROL ENTER    &mt RCTRL ENTER  &mt RIGHT_SHIFT SPACE  &StickyWinKey
             >;
         };
 
