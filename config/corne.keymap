@@ -152,6 +152,7 @@
             #binding-cells = <1>;
             release-after-ms = <500>;
         };
+
         StickyWinKey: StickyWinKey {
             compatible = "zmk,behavior-tap-dance";
             label = "STICKYWINKEY";
@@ -248,10 +249,10 @@
 
         Utility {
             bindings = <
-&none  &kp LG(LS(T))  &kp F7  &kp F8  &kp F9  &kp F10    &bt BT_SEL 4  &bt BT_CLR    &none     &none         &none      &none
-&none  &kp LG(LS(S))  &kp F4  &kp F5  &kp F6  &kp F11    &bt BT_SEL 2  &bt BT_SEL 3  &none     &kp UP_ARROW  &none      &none
-&none  &kp LG(LS(C))  &kp F1  &kp F2  &kp F3  &kp F12    &bt BT_SEL 0  &bt BT_SEL 1  &kp LEFT  &kp DOWN      &kp RIGHT  &none
-                              &trans  &trans  &trans     &trans        &trans        &trans
+&none  &kp LG(LS(T))  &kp F7  &kp F8  &kp F9  &kp F10    &none   &none   &none     &kp UP    &none      &none
+&none  &kp LG(LS(S))  &kp F4  &kp F5  &kp F6  &kp F11    &none   &none   &kp LEFT  &kp DOWN  &kp RIGHT  &none
+&none  &kp LG(LS(C))  &kp F1  &kp F2  &kp F3  &kp F12    &none   &none   &none     &none     &none      &none
+                              &trans  &trans  &trans     &trans  &trans  &trans
             >;
 
             label = "Utility";
