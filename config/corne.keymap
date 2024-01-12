@@ -144,7 +144,9 @@
                 <&macro_tap>,
                 <&kp LG(X)>,
                 <&macro_wait_time 100>,
-                <&kp U &kp U>;
+                <&kp U>,
+                <&macro_wait_time 100>,
+                <&kp U>;
         };
     };
 
