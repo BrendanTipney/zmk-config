@@ -140,7 +140,11 @@
             compatible = "zmk,behavior-macro";
             label = "SHUT_DOWN";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LG(X) &kp U &kp U>;
+            bindings =
+                <&macro_tap>,
+                <&kp LG(X)>,
+                <&macro_wait_time 100>,
+                <&kp U &kp U>;
         };
     };
 
