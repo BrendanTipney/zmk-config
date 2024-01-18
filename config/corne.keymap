@@ -133,6 +133,11 @@
             bindings = <&kp SPACE>;
             key-positions = <30 31 32>;
         };
+
+        Utlity {
+            bindings = <&sl 7>;
+            key-positions = <28 2>;
+        };
     };
 
     macros {
