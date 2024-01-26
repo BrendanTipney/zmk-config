@@ -59,32 +59,32 @@
 
         Brace {
             bindings = <&kp LEFT_PARENTHESIS>;
-            key-positions = <7 8>;
+            key-positions = <8 9>;
         };
 
         EndBrace {
             bindings = <&kp RIGHT_PARENTHESIS>;
-            key-positions = <8 9>;
+            key-positions = <9 10>;
         };
 
         CurlyBrace {
             bindings = <&kp LEFT_BRACE>;
-            key-positions = <19 20>;
+            key-positions = <20 21>;
         };
 
         EndCurlyBrace {
             bindings = <&kp RIGHT_BRACE>;
-            key-positions = <20 21>;
+            key-positions = <21 22>;
         };
 
         SquareBrace {
             bindings = <&kp LEFT_BRACKET>;
-            key-positions = <31 32>;
+            key-positions = <32 33>;
         };
 
         EndSquareBrace {
             bindings = <&kp RIGHT_BRACKET>;
-            key-positions = <32 33>;
+            key-positions = <33 34>;
         };
 
         Backspace {
