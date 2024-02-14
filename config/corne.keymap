@@ -145,7 +145,7 @@
         };
 
         MoreThan {
-            bindings = <&kp LESS_THAN>;
+            bindings = <&kp GREATER_THAN>;
             key-positions = <37 32 33>;
         };
     };
