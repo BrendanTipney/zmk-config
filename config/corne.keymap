@@ -290,10 +290,10 @@
 
         VSCode {
             bindings = <
-&trans  &trans  &kp LS(LC(L))      &kp LS(LA(RIGHT))  &kp LA(DOWN)  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &kp LC(L)          &kp LS(LA(LEFT))   &kp LA(DOWN)  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &kp LS(LA(LC(S)))  &trans             &trans        &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                                   &trans             &trans        &trans    &trans  &trans  &trans
+&trans  &trans  &kp LS(LC(L))      &kp LS(LA(RIGHT))  &kp LA(UP_ARROW)  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &kp LC(L)          &kp LS(LA(LEFT))   &kp LA(DOWN)      &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &kp LS(LA(LC(S)))  &trans             &trans            &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                                   &trans             &trans            &trans    &trans  &trans  &trans
             >;
         };
     };
