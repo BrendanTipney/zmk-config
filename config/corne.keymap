@@ -163,18 +163,6 @@
                 <&macro_wait_time 100>,
                 <&kp U>;
         };
-
-        Surround: Surround {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LC(K)>,
-                <&macro_wait_time 100>,
-                <&kp LC(S)>;
-
-            label = "SURROUND";
-        };
     };
 
     behaviors {
@@ -302,10 +290,10 @@
 
         VSCode {
             bindings = <
-&trans  &trans  &kp LS(LA(L))  &kp LS(LA(RIGHT))  &kp LS(LA(DOWN))  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &kp LC(L)      &kp LS(LA(LEFT))   &kp LS(LA(DOWN))  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &Surround      &kp LS(LA(L))      &trans            &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                               &trans             &trans            &trans    &trans  &trans  &trans
+&trans  &trans  &kp LS(LA(L))      &kp LS(LA(RIGHT))  &kp LS(LA(DOWN))  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &kp LC(L)          &kp LS(LA(LEFT))   &kp LS(LA(DOWN))  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &kp LS(LA(LC(S)))  &kp LS(LA(L))      &trans            &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                                   &trans             &trans            &trans    &trans  &trans  &trans
             >;
         };
     };
