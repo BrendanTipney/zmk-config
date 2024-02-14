@@ -163,6 +163,18 @@
                 <&macro_wait_time 100>,
                 <&kp U>;
         };
+
+        Surround: Surround {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LC(K)>,
+                <&macro_wait_time 100>,
+                <&kp LC(S)>;
+
+            label = "SURROUND";
+        };
     };
 
     behaviors {
@@ -194,7 +206,7 @@
 
             bindings = <
 &none  &lt 8 Q  &kp W    &kp F          &kp P                 &kp G                     &kp J            &kp L                  &kp U          &kp Y    &kp SEMICOLON  &none
-&none  &lt 1 A  &lt 6 S  &lt 3 R        &lt 3 T               &kp D                     &kp H            &lt 3 N                &lt 3 E        &kp I    &lt 7 O        &none
+&none  &lt 1 A  &lt 6 S  &lt 3 R        &lt 3 T               &lt 9 D                   &kp H            &lt 3 N                &lt 3 E        &kp I    &lt 7 O        &none
 &none  &lt 2 Z  &kp X    &kp C          &kp V                 &kp B                     &kp K            &kp M                  &kp COMMA      &kp DOT  &kp FSLH       &none
                          &StickyWinKey  &mt LEFT_SHIFT SPACE  &mt LEFT_CONTROL ENTER    &mt RCTRL ENTER  &mt RIGHT_SHIFT SPACE  &StickyWinKey
             >;
@@ -285,6 +297,15 @@
 &trans  &trans  &bt BT_SEL 3  &bt BT_SEL 4  &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans        &trans        &trans        &bt BT_CLR    &trans  &trans  &trans  &trans  &trans  &trans
                               &trans        &trans        &trans        &trans  &trans  &trans
+            >;
+        };
+
+        VSCode {
+            bindings = <
+&trans  &trans  &kp LS(LA(L))  &kp LS(LA(RIGHT))  &kp LS(LA(DOWN))  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &kp LC(L)      &kp LS(LA(LEFT))   &kp LS(LA(DOWN))  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &Surround      &kp LS(LA(L))      &trans            &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                               &trans             &trans            &trans    &trans  &trans  &trans
             >;
         };
     };
