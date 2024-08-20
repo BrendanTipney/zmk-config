@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/mouse.h>
 
 / {
     combos {
@@ -147,6 +148,11 @@
         MoreThan {
             bindings = <&kp GREATER_THAN>;
             key-positions = <37 32 33>;
+        };
+
+        Enable_Mouse {
+            bindings = <&tog 10>;
+            key-positions = <14 28>;
         };
     };
 
@@ -294,6 +300,15 @@
 &trans  &trans  &kp LC(L)          &kp LS(LA(LEFT))   &kp LA(DOWN)      &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &kp LS(LA(LC(S)))  &trans             &trans            &trans    &trans  &trans  &trans  &trans  &trans  &trans
                                    &trans             &trans            &trans    &trans  &trans  &trans
+            >;
+        };
+
+        Mouse {
+            bindings = <
+&trans  &trans  &mkp MB4        &mmv MOVE_UP    &mkp MB5         &mwh SCROLL_UP      &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCROLL_DOWN    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans          &trans          &trans           &trans              &trans  &trans  &trans  &trans  &trans  &trans
+                                &mkp MCLK       &mkp RCLK        &mkp LCLK           &trans  &trans  &trans
             >;
         };
     };
