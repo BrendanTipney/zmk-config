@@ -4,10 +4,11 @@
  * SPDX-License-Identifier: MIT
  */
 
+#include <dt-bindings/zmk/mouse.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/mouse.h>
+#include <dt-bindings/zmk/pointing.h>
 
 / {
     combos {
@@ -305,10 +306,10 @@
 
         Mouse {
             bindings = <
-&trans  &trans  &mkp MB4        &mmv MOVE_UP    &mkp MB5         &mwh SCROLL_UP      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCROLL_DOWN    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans          &trans          &trans           &trans              &trans  &trans  &trans  &trans  &trans  &trans
-                                &mkp MCLK       &mkp RCLK        &mkp LCLK           &trans  &trans  &trans
+&trans  &trans  &mkp MB4        &mmv MOVE_UP    &mkp MB5         &msc SCRL_UP      &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans          &trans          &trans           &trans            &trans  &trans  &trans  &trans  &trans  &trans
+                                &mkp MCLK       &mkp RCLK        &mkp LCLK         &trans  &trans  &trans
             >;
         };
     };
