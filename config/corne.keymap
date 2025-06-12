@@ -139,6 +139,7 @@
         Utlity {
             bindings = <&mo 7>;
             key-positions = <25 14>;
+            layers = <0>;
         };
 
         LessThan {
