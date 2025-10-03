@@ -153,13 +153,18 @@
         };
 
         Enable_Mouse {
-            bindings = <&tog 10>;
+            bindings = <&tog 11>;
             key-positions = <14 28>;
         };
 
         QWERTY {
-            bindings = <&tog 11>;
+            bindings = <&tog 10>;
             key-positions = <17 16 14>;
+        };
+
+        MouseLayerRight {
+            bindings = <&tog 12>;
+            key-positions = <31 21>;
         };
     };
 
@@ -207,7 +212,7 @@
 
             bindings = <
 &none  &lt 8 Q  &kp W    &kp F          &kp P                 &kp G                     &kp J            &kp L                  &kp U        &kp Y    &kp SEMICOLON  &none
-&none  &lt 1 A  &lt 6 S  &lt 3 R        &lt 3 T               &lt 9 D                   &kp H            &lt 3 N                &lt 3 E      &kp I    &lt 7 O        &none
+&none  &lt 1 A  &lt 6 S  &lt 3 R        &lt 3 T               &lt 9 D                   &kp H            &lt 3 N                &lt 3 E      &kp I    &lt 12 O       &none
 &none  &lt 2 Z  &kp X    &kp C          &kp V                 &kp B                     &kp K            &kp M                  &kp COMMA    &kp DOT  &kp FSLH       &none
                          &StickyWinKey  &mt LEFT_SHIFT SPACE  &mt LEFT_CONTROL ENTER    &mt RCTRL ENTER  &mt RIGHT_SHIFT SPACE  &key_repeat
             >;
@@ -310,21 +315,30 @@
             >;
         };
 
-        Mouse {
-            bindings = <
-&trans  &trans  &mkp MB4        &mmv MOVE_UP    &mkp MB5         &msc SCRL_UP      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans          &trans          &trans           &trans            &trans  &trans  &trans  &trans  &trans  &trans
-                                &mkp MCLK       &mkp RCLK        &mkp LCLK         &trans  &trans  &trans
-            >;
-        };
-
         QWERTY {
             bindings = <
 &none  &lt 8 Q  &kp W    &kp E          &kp R                 &kp T                     &kp Y            &kp U                  &kp I        &kp O    &kp P     &none
 &none  &lt 1 A  &lt 6 S  &kp D          &kp F                 &lt 9 D                   &kp H            &kp J                  &kp K        &kp L    &kp SEMI  &none
 &none  &lt 2 Z  &kp X    &kp C          &kp V                 &kp B                     &kp N            &kp M                  &kp COMMA    &kp DOT  &kp FSLH  &none
                          &StickyWinKey  &mt LEFT_SHIFT SPACE  &mt LEFT_CONTROL ENTER    &mt RCTRL ENTER  &mt RIGHT_SHIFT SPACE  &key_repeat
+            >;
+        };
+
+        Mouse {
+            bindings = <
+&trans  &trans  &mkp MB4        &mmv MOVE_UP    &mkp MB5         &msc SCRL_UP       &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN     &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans          &trans          &msc SCRL_LEFT   &msc SCRL_RIGHT    &trans  &trans  &trans  &trans  &trans  &trans
+                                &mkp MCLK       &mkp RCLK        &mkp LCLK          &trans  &trans  &trans
+            >;
+        };
+
+        MouseRight {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans    &msc SCRL_UP    &mkp MB4         &mmv MOVE_UP    &mkp MB5         &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &msc SCRL_DOWN  &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &msc SCRL_LEFT  &msc SCRL_RIGHT  &trans          &trans           &trans  &trans
+                        &trans  &trans  &trans    &mkp LCLK       &mkp RCLK        &mkp MCLK
             >;
         };
     };
