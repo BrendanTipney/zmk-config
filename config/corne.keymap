@@ -111,29 +111,14 @@
             key-positions = <16 14 13>;
         };
 
-        Right_Side_Enter {
-            bindings = <&kp ENTER>;
-            key-positions = <22 21>;
-        };
-
         Right_Hand_BKSPC {
             bindings = <&kp BACKSPACE>;
-            key-positions = <10 9>;
+            key-positions = <9 10>;
         };
 
         Shut_Down {
             bindings = <&Shut_Down>;
             key-positions = <1 25 14 27>;
-        };
-
-        R_Shift {
-            bindings = <&kp RIGHT_SHIFT>;
-            key-positions = <34 33>;
-        };
-
-        R_Space {
-            bindings = <&kp SPACE>;
-            key-positions = <30 31 32>;
         };
 
         Utlity {
@@ -150,11 +135,6 @@
         MoreThan {
             bindings = <&kp GREATER_THAN>;
             key-positions = <37 32 33>;
-        };
-
-        Enable_Mouse {
-            bindings = <&mo 12>;
-            key-positions = <14 28>;
         };
 
         QWERTY {
