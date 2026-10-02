@@ -38,10 +38,10 @@
         scroll;
         bottom-beta = <5>;
         stationary-threshold = <5>;
-        invert-y;
     };
 };
 
 &tps43_split {
     device = <&tps43>;
+    input-processors = <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>;
 };
