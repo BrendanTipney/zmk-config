@@ -1,5 +1,6 @@
 #include "corne.dtsi"
 #include <dt-bindings/zmk/input_transform.h>
+#include <input/processors.dtsi>
 
 &pinctrl {
     i2c0_default: i2c0_default {
