@@ -187,7 +187,7 @@
 
             bindings = <
 &none  &lt 8 Q  &kp W    &kp F          &kp P                 &kp G                     &kp J            &kp L                  &kp U        &kp Y    &kp SEMICOLON  &none
-&none  &lt 1 A  &lt 6 S  &lt 3 R        &lt 3 T               &lt 9 D                   &kp H            &lt 3 N                &lt 3 E      &kp I    &lt 0 O        &none
+&none  &lt 1 A  &lt 6 S  &lt 3 R        &lt 3 T               &lt 9 D                   &lt 12 H         &lt 3 N                &lt 3 E      &kp I    &lt 0 O        &none
 &none  &lt 2 Z  &kp X    &kp C          &kp V                 &kp B                     &kp K            &kp M                  &kp COMMA    &kp DOT  &kp FSLH       &none
                          &StickyWinKey  &mt LEFT_SHIFT SPACE  &mt LEFT_CONTROL ENTER    &mt RCTRL ENTER  &mt RIGHT_SHIFT SPACE  &key_repeat
             >;
@@ -306,6 +306,17 @@
 &trans  &trans  &trans          &trans          &msc SCRL_LEFT   &msc SCRL_RIGHT    &trans  &trans  &trans  &trans  &trans  &trans
                                 &mkp MCLK       &mkp RCLK        &mkp LCLK          &trans  &trans  &trans
             >;
+        };
+
+        HighSens {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+
+            label = "HighSens";
         };
     };
 };

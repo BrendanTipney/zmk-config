@@ -44,5 +44,6 @@
 
 &tps43_split {
     device = <&tps43>;
-    input-processors = <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>;
+    input-processors = <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
+                       <&zip_xy_scaler 9 10>;
 };
