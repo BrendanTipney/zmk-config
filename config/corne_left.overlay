@@ -8,4 +8,9 @@
         layers = <12>;
         input-processors = <&zip_xy_scaler 2 1>;
     };
+
+    low_sens_override {
+        layers = <13>;
+        input-processors = <&zip_xy_scaler 1 2>;
+    };
 };
