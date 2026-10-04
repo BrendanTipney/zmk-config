@@ -19,6 +19,8 @@
  *   [0] 'N'  [1] 'K'  [2] 0x81 SUBSCRIBE
  */
 
+#include <string.h>
+
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
 #include <zephyr/sys/byteorder.h>
@@ -41,8 +43,14 @@ enum nk_message_type {
     NK_MSG_HELLO = 0x01,
     NK_MSG_KEY = 0x02,
     NK_MSG_LAYER = 0x03,
+    NK_MSG_KEYMAP_ID = 0x04,
     NK_REQ_SUBSCRIBE = 0x81,
 };
+
+#ifndef NULL_KEYS_KEYMAP_ID
+#define NULL_KEYS_KEYMAP_ID "unknown"
+#endif
+#define NK_KEYMAP_ID_LEN 12
 
 struct nk_report {
     uint8_t data[NK_PAYLOAD_LEN];
@@ -92,6 +100,22 @@ static void nk_queue_report(uint8_t type, uint8_t a, uint8_t b) {
     k_work_submit(&nk_send_work);
 }
 
+/* Which keymap source this firmware was built from; the overlay compares it with its file. */
+static void nk_queue_keymap_id(void) {
+    struct nk_report report = {0};
+    report.data[0] = NK_MAGIC_0;
+    report.data[1] = NK_MAGIC_1;
+    report.data[2] = NK_MSG_KEYMAP_ID;
+    report.data[3] = sequence++;
+    strncpy((char *)&report.data[4], NULL_KEYS_KEYMAP_ID, NK_KEYMAP_ID_LEN);
+
+    if (k_msgq_put(&nk_queue, &report, K_NO_WAIT) != 0) {
+        LOG_WRN("Null Keys report queue full, dropping keymap id");
+        return;
+    }
+    k_work_submit(&nk_send_work);
+}
+
 static bool is_subscribe_request(const uint8_t *data, uint8_t length) {
     /* Some host stacks leave the (zero) report ID in front of the payload. */
     for (uint8_t offset = 0; offset <= 1 && offset + 3 <= length; offset++) {
@@ -130,6 +154,7 @@ static int nk_listener(const zmk_event_t *eh) {
         }
         /* Every subscribe gets a HELLO so the host can resync layer state. */
         nk_queue_report(NK_MSG_HELLO, NK_PROTOCOL_VERSION, zmk_keymap_layer_default());
+        nk_queue_keymap_id();
     }
     return ZMK_EV_EVENT_BUBBLE;
 }
