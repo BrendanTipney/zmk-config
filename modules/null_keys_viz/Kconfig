@@ -1,0 +1,16 @@
+config NULL_KEYS_VIZ
+    bool "Stream key positions and layer state to the Null Keys overlay"
+    default y
+    depends on RAW_HID
+
+if NULL_KEYS_VIZ
+
+config NULL_KEYS_VIZ_HOST_TIMEOUT_MS
+    int "Stop streaming after this long without a host subscribe (ms)"
+    default 6000
+
+config NULL_KEYS_VIZ_QUEUE_SIZE
+    int "Pending report queue length"
+    default 32
+
+endif

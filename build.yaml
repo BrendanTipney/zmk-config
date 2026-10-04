@@ -9,8 +9,10 @@
 #
 ---
 include:
+  # raw_hid_adapter goes on the left half only: it is the split central, so it owns
+  # layer state and the link to the computer that the Null Keys overlay reads.
   - board: nice_nano//zmk
-    shield: corne_left
+    shield: corne_left raw_hid_adapter
     artifact-name: corne_left-nice_nano_v2
   - board: nice_nano//zmk
     shield: corne_right

@@ -1,0 +1,5 @@
+if (CONFIG_NULL_KEYS_VIZ)
+  zephyr_library()
+  zephyr_library_sources(src/null_keys_viz.c)
+  zephyr_include_directories(${APPLICATION_SOURCE_DIR}/include)
+endif()

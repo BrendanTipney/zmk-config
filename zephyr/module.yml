@@ -1,0 +1,4 @@
+name: null-keys-viz
+build:
+  cmake: modules/null_keys_viz
+  kconfig: modules/null_keys_viz/Kconfig
