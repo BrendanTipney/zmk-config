@@ -33,7 +33,9 @@
         reg = <0x74>;
 
         rdy-gpios = <&gpio0 20 GPIO_ACTIVE_HIGH>;
-        rst-gpios = <&gpio0 17 GPIO_ACTIVE_LOW>;
+        // This driver drives RST "active" to release the chip from reset, so the
+        // flag must be ACTIVE_HIGH even though the IQS5xx NRST pin is active-low.
+        rst-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
 
         single-tap;
         two-finger-tap;
