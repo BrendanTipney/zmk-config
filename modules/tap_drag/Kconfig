@@ -1,0 +1,4 @@
+config ZMK_INPUT_PROCESSOR_TAP_DRAG
+    bool "Laptop-style tap, tap-and-drag and double tap input processor"
+    default y
+    depends on DT_HAS_ZMK_INPUT_PROCESSOR_TAP_DRAG_ENABLED

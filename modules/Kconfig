@@ -1,0 +1,2 @@
+rsource "null_keys_viz/Kconfig"
+rsource "tap_drag/Kconfig"

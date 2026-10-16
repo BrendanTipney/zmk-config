@@ -1,0 +1,5 @@
+if (CONFIG_ZMK_INPUT_PROCESSOR_TAP_DRAG)
+  zephyr_library()
+  zephyr_library_sources(src/input_processor_tap_drag.c)
+  zephyr_include_directories(${APPLICATION_SOURCE_DIR}/include)
+endif()

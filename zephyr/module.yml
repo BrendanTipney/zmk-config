@@ -1,4 +1,6 @@
 name: null-keys-viz
 build:
-  cmake: modules/null_keys_viz
-  kconfig: modules/null_keys_viz/Kconfig
+  cmake: modules
+  kconfig: modules/Kconfig
+  settings:
+    dts_root: .

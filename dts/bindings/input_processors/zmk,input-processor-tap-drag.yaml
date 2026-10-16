@@ -1,0 +1,15 @@
+description: |
+  Laptop-style tap, tap-and-drag and double tap for trackpads that report
+  INPUT_BTN_TOUCH while a finger is down and INPUT_BTN_0 for taps.
+
+compatible: "zmk,input-processor-tap-drag"
+
+include: ip_zero_param.yaml
+
+properties:
+  window-ms:
+    type: int
+    default: 200
+    description: |
+      How long after a tap a new touch turns into a drag. Single-tap clicks
+      are sent this long after the tap.
