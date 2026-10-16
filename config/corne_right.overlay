@@ -39,6 +39,9 @@
 
         single-tap;
         two-finger-tap;
+        press-and-hold;
+        scroll;
+        zoom;
 
         enable-power-management;
         idle-sleep;
