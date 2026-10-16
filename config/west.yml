@@ -2,20 +2,15 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: aym1607
-      url-base: https://github.com/AYM1607
-    - name: zzeneg
-      url-base: https://github.com/zzeneg
+    - name: essenceotd
+      url-base: https://github.com/essenceotd
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
-    - name: zmk-driver-azoteq-iqs5xx
-      remote: aym1607
-      revision: main
-    - name: zmk-raw-hid
-      remote: zzeneg
+    - name: zmk_driver_azoteq
+      remote: essenceotd
       revision: main
   self:
     path: config
