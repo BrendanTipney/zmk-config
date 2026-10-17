@@ -52,6 +52,12 @@
         scroll;
         zoom;
 
+        // 0x0B = IIR + MAV + ALP filters with the dynamic (speed-based) IIR.
+        // The driver default 0x0F selects the static IIR, which ignores the
+        // dynamic settings below. Bottom beta 5 matches the old AYM1607 setup.
+        filter-settings = <0x0B>;
+        filter-dynamic-bottom = <5>;
+
         enable-power-management;
         idle-sleep;
     };
