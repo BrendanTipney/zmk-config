@@ -282,6 +282,7 @@ If the status stays red, hover over it to see why. "Keyboard not found" usually 
 All in `config/corne_right.overlay` unless noted:
 
 * Base speed: `zip_xy_scaler 9 10` (0.9x)
+* Scroll speed: `zip_scroll_scaler 1 3` (1/3)
 * Axis direction: `zip_xy_transform INPUT_TRANSFORM_Y_INVERT`
 * Tap and drag window: `window-ms` on `zip_tap_drag` (200 ms)
 * Smoothing: `filter-settings` and `filter-dynamic-bottom`
