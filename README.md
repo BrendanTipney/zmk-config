@@ -63,11 +63,11 @@ The right thumbs mirror Space/Shift and Enter/Ctrl. The outer right thumb types 
 
 **Gaming mode.** Press A + S + T to toggle the Gaming layer. It puts QWERTY back one column in, with WASD under the fingers, Shift and Ctrl on the pinky, and T, G and Space on the thumbs. Hold Q on that layer for the number row.
 
-**Trackpad with laptop gestures.** Tap to click, tap then drag to hold the button, double tap to double click, two finger tap, scroll and zoom. A custom input processor (`modules/tap_drag`) handles tap and drag. Hold P for high sensitivity (1.8x) and V for low sensitivity (0.45x) when you need speed or precision.
+**Trackpad with laptop gestures.** Tap to click, tap then drag to hold the button, double tap to double click, two finger tap, scroll and zoom. A custom input processor (`modules/tap_drag`) handles tap and drag. Hold P for high sensitivity (1.8x) and V for low sensitivity (0.45x) when you need speed or precision. Press N + I to turn the trackpad off or back on; the setting is saved, so it stays that way through sleep (`modules/trackpad_toggle`).
 
 **Long battery life.** The trackpad driver fork sleeps the pad with the keyboard, and the halves go to deep sleep after 30 minutes idle.
 
-**NullKeys overlay support.** The left half streams key positions and layer state over Raw HID (`modules/null_keys_viz`) so the NullKeys overlay can show exactly what the keyboard is doing. It only streams while the overlay is asking for data.
+**NullKeys overlay support.** The left half streams key positions, layer state and both halves' battery levels over Raw HID (`modules/null_keys_viz`) so the NullKeys overlay can show exactly what the keyboard is doing. It only streams while the overlay is asking for data. See [NullKeys overlay](#nullkeys-overlay) below.
 
 ## Layers
 
@@ -201,15 +201,18 @@ Play      Prev      Next      Mute      Win+Shift+K
 | A + S + T | Toggle Gaming | All |
 | S + T + D | Toggle QWERTY | All |
 | T + D | Middle click | Base |
+| N + I | Trackpad on / off (remembered through sleep) | All |
 | A + left Enter | Function layer | Base |
 | Q + S + Z + C | Shut down Windows (Win+X, U, U) | All |
 
 ## Building and flashing
 
-Pushing to the `colemak` branch runs the GitHub Actions build. When it finishes, download the artifacts from the run:
+The latest firmware is always on the [Latest build](https://github.com/BrendanTipney/NullKeys/releases/tag/latest) release, no GitHub account needed:
 
-* `corne_left-nice_nano_v2`: the left half. It includes the `raw_hid_adapter` shield, because the left half is the split central that owns layer state and the connection to the computer.
-* `corne_right-nice_nano_v2`: the right half, with the trackpad.
+* `corne_left-nice_nano_v2.uf2`: the left half. It includes the `raw_hid_adapter` shield, because the left half is the split central that owns layer state and the connection to the computer.
+* `corne_right-nice_nano_v2.uf2`: the right half, with the trackpad.
+
+Pushing to the `colemak` branch runs the GitHub Actions build, and a successful build replaces the files on that release. Pushing a `v*` tag (for example `v1.0`) also publishes a permanent release for that version. Pushes that only change Markdown files, `LICENSE` or `nullkeys_overlay/` don't build. To skip the build for any other commit, put `[skip ci]` in its message.
 
 To flash a half:
 
@@ -230,7 +233,36 @@ Set up in `config/west.yml`:
 And in this repo, as a Zephyr module (`zephyr/module.yml`):
 
 * `modules/tap_drag`: laptop style tap, tap and drag and double tap for the trackpad
-* `modules/null_keys_viz`: streams key and layer events to the NullKeys overlay
+* `modules/trackpad_toggle`: the `&tp_toggle` behavior behind N + I, plus the input processor that drops trackpad input while it's off
+* `modules/null_keys_viz`: streams key, layer and battery events to the NullKeys overlay
+
+## NullKeys overlay
+
+An always on top window for Windows that shows which keys are pressed, which layers are active, what every key does right now, combos as they fire, and the battery level of each half. It's handy for learning the layout and for screen recordings.
+
+### Install
+
+1. Download `null_keys.exe` from the [Overlay release](https://github.com/BrendanTipney/NullKeys/releases/tag/overlay).
+2. Install [Python 3](https://www.python.org/downloads/) and tick "Add python.exe to PATH" in the installer. The overlay talks to the keyboard through a small Python script, and the Microsoft Store placeholder `python.exe` won't work.
+3. Install the HID library it uses:
+
+```bash
+pip install hidapi
+```
+
+4. Flash the firmware from the Latest build release, so the left half has the Raw HID interface.
+5. Connect the keyboard over USB (to the left half) or Bluetooth, then run `null_keys.exe`.
+
+The status in the top right turns green and shows `NullDeck` with the battery level of each half, for example `L 85% · R 72%`. The right half's level shows up a minute or so after it connects.
+
+### Using it
+
+* Drag the window by any empty area, and resize it from the bottom right corner.
+* Right click for the menu: reload or open a keymap, overlay mode (outlines only, for recordings), click through, always on top, opacity, and restarting the HID bridge.
+* If the status says `keymap differs`, the keymap inside the overlay doesn't match the firmware on the keyboard. Drag `config/corne.keymap` from this repo onto the window to use it instead; the overlay reloads it whenever the file changes.
+* With no keyboard connected it runs in demo mode: click keys to press them, and Shift+click to hold them down.
+
+If the status stays red, hover over it to see why. "Keyboard not found" usually means the left half is running firmware without the Raw HID interface, and "pip install hidapi" means step 3 was missed.
 
 ## Files
 
@@ -243,6 +275,7 @@ And in this repo, as a Zephyr module (`zephyr/module.yml`):
 | `config/corne_right.overlay` | Peripheral side: I2C bus, TPS43 node and pins, input processors |
 | `config/west.yml` | External modules |
 | `build.yaml` | Build matrix for the two halves |
+| `.github/workflows/build.yml` | Firmware build, plus publishing the Latest build and `v*` releases |
 
 ## Tuning the trackpad
 
