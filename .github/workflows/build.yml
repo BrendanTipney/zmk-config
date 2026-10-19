@@ -3,3 +3,54 @@ on: [push, pull_request, workflow_dispatch]
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+
+  # Publishes the firmware so others can download it without a GitHub login:
+  #   push to colemak -> rolling "latest" pre-release, replaced on every build
+  #   push a v* tag   -> permanent release for that version
+  release:
+    needs: build
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/colemak' || startsWith(github.ref, 'refs/tags/v'))
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: release
+      cancel-in-progress: false
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      COMMIT_MSG: ${{ github.event.head_commit.message }}
+    steps:
+      - name: Download firmware
+        uses: actions/download-artifact@v8
+        with:
+          name: firmware
+          path: firmware
+
+      - name: Write release notes
+        run: |
+          {
+            echo "Built from \`${GITHUB_SHA::7}\`: ${COMMIT_MSG%%$'\n'*}"
+            echo
+            echo "- \`corne_left-nice_nano_v2.uf2\`: left half (central, connects to the computer)"
+            echo "- \`corne_right-nice_nano_v2.uf2\`: right half (trackpad)"
+            echo
+            echo "To flash, double-tap reset on the nice!nano and drag the matching .uf2 onto the NICENANO drive."
+          } > notes.md
+
+      - name: Publish rolling latest release
+        if: github.ref == 'refs/heads/colemak'
+        run: |
+          gh release delete latest --yes --cleanup-tag || true
+          gh release create latest firmware/* \
+            --target "$GITHUB_SHA" \
+            --title "Latest build" \
+            --notes-file notes.md \
+            --prerelease
+
+      - name: Publish version release
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          gh release create "$GITHUB_REF_NAME" firmware/* \
+            --title "$GITHUB_REF_NAME" \
+            --notes-file notes.md
