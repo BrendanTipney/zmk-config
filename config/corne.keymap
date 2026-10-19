@@ -137,6 +137,12 @@
             key-positions = <16 17>;
             layers = <0>;
         };
+
+        TrackpadToggle {
+            bindings = <&tp_toggle>;
+            key-positions = <19 21>;
+            require-prior-idle-ms = <150>;
+        };
     };
 
     macros {
@@ -168,6 +174,12 @@
             label = "STICKYWINKEY";
             #binding-cells = <0>;
             bindings = <&kp LEFT_ALT>, <&StickyKey LEFT_WIN>;
+        };
+
+        // Trackpad on/off, remembered through sleep (modules/trackpad_toggle).
+        tp_toggle: tp_toggle {
+            compatible = "zmk,behavior-trackpad-toggle";
+            #binding-cells = <0>;
         };
     };
 

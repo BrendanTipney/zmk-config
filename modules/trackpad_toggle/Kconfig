@@ -1,0 +1,4 @@
+config ZMK_TRACKPAD_TOGGLE
+    bool "Trackpad on/off toggle behavior that remembers its state"
+    default y
+    depends on DT_HAS_ZMK_BEHAVIOR_TRACKPAD_TOGGLE_ENABLED

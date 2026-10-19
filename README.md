@@ -6,15 +6,17 @@ The layout is built around one idea. Moving a hand between the mouse and the key
 
 Case study, 3D model and an interactive layout explorer: [nullmoniker.ca/keyboard.html](https://nullmoniker.ca/keyboard.html)
 
+Printable case files: [Thingiverse](https://www.thingiverse.com/thing:7424328)
+
 ## Hardware
 
 | Part | Detail |
 |---|---|
 | PCB | Typeractive Corne Wireless, outer columns broken off (5 columns + 3 thumb keys per half) |
 | Controllers | 2x nice!nano v2 (nRF52840), mounted components down |
-| Switches | Kailh Choc v1 low profile |
+| Switches | Kailh Choc v1 low profile, white |
 | Trackpad | Azoteq TPS43 (IQS5xx family), right half only, I2C |
-| Case | My own design in Fusion 360, FDM printed, M2 screws, fold out tenting legs |
+| Case | My own design in Fusion 360, printed in PLA at 0.1 mm layers, M2 screws and heat set inserts, fold out tenting legs |
 | Magnets | Three in the case, so the halves snap together and attach to accessories like a pocket mount |
 | Connection | Bluetooth (5 profiles) or USB to the left half |
 

@@ -1,0 +1,5 @@
+if (CONFIG_ZMK_TRACKPAD_TOGGLE)
+  zephyr_library()
+  zephyr_library_sources(src/trackpad_toggle.c)
+  zephyr_include_directories(${APPLICATION_SOURCE_DIR}/include)
+endif()

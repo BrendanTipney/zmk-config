@@ -11,6 +11,12 @@
         #input-processor-cells = <0>;
         window-ms = <200>;
     };
+
+    // Drops trackpad input while &tp_toggle has it off (modules/trackpad_toggle).
+    zip_trackpad_gate: zip_trackpad_gate {
+        compatible = "zmk,input-processor-trackpad-gate";
+        #input-processor-cells = <0>;
+    };
 };
 
 &pinctrl {
@@ -65,7 +71,8 @@
 
 &tps43_split {
     device = <&tps43>;
-    input-processors = <&zip_tap_drag>,
+    input-processors = <&zip_trackpad_gate>,
+                       <&zip_tap_drag>,
                        <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
                        <&zip_xy_scaler 9 10>;
 };

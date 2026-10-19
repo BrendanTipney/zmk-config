@@ -15,6 +15,7 @@
  *   KEY   (0x02): [4] position  [5] pressed      [6..9] layer state  [10..13] uptime ms
  *   LAYER (0x03): [4] layer     [5] active       [6..9] layer state  [10..13] uptime ms
  *   HELLO (0x01): [4] protocol  [5] default layer [6..9] layer state [10..13] uptime ms
+ *   BATTERY (0x05): [4] side (0 = left/central, 1 = right/peripheral)  [5] percent
  * Host -> keyboard:
  *   [0] 'N'  [1] 'K'  [2] 0x81 SUBSCRIBE
  */
@@ -25,7 +26,9 @@
 #include <zephyr/logging/log.h>
 #include <zephyr/sys/byteorder.h>
 
+#include <zmk/battery.h>
 #include <zmk/event_manager.h>
+#include <zmk/events/battery_state_changed.h>
 #include <zmk/events/layer_state_changed.h>
 #include <zmk/events/position_state_changed.h>
 #include <zmk/keymap.h>
@@ -44,8 +47,13 @@ enum nk_message_type {
     NK_MSG_KEY = 0x02,
     NK_MSG_LAYER = 0x03,
     NK_MSG_KEYMAP_ID = 0x04,
+    NK_MSG_BATTERY = 0x05,
     NK_REQ_SUBSCRIBE = 0x81,
 };
+
+#define NK_SIDE_LEFT 0
+#define NK_SIDE_RIGHT 1
+#define NK_BATTERY_UNKNOWN 0xFF
 
 #ifndef NULL_KEYS_KEYMAP_ID
 #define NULL_KEYS_KEYMAP_ID "unknown"
@@ -61,6 +69,9 @@ K_MSGQ_DEFINE(nk_queue, sizeof(struct nk_report), CONFIG_NULL_KEYS_VIZ_QUEUE_SIZ
 static int64_t last_subscribe_ms;
 static bool subscribed;
 static uint8_t sequence;
+
+/* The right half's level only arrives as an event, so keep the last one for new subscribers. */
+static uint8_t __maybe_unused right_battery = NK_BATTERY_UNKNOWN;
 
 static bool host_listening(void) {
     if (subscribed &&
@@ -144,6 +155,26 @@ static int nk_listener(const zmk_event_t *eh) {
         return ZMK_EV_EVENT_BUBBLE;
     }
 
+#if IS_ENABLED(CONFIG_ZMK_BATTERY_REPORTING)
+    const struct zmk_battery_state_changed *battery = as_zmk_battery_state_changed(eh);
+    if (battery) {
+        if (host_listening()) {
+            nk_queue_report(NK_MSG_BATTERY, NK_SIDE_LEFT, battery->state_of_charge);
+        }
+        return ZMK_EV_EVENT_BUBBLE;
+    }
+
+    const struct zmk_peripheral_battery_state_changed *peripheral_battery =
+        as_zmk_peripheral_battery_state_changed(eh);
+    if (peripheral_battery) {
+        right_battery = peripheral_battery->state_of_charge;
+        if (host_listening()) {
+            nk_queue_report(NK_MSG_BATTERY, NK_SIDE_RIGHT, right_battery);
+        }
+        return ZMK_EV_EVENT_BUBBLE;
+    }
+#endif
+
     const struct raw_hid_received_event *received = as_raw_hid_received_event(eh);
     if (received && is_subscribe_request(received->data, received->length)) {
         bool was_subscribed = host_listening();
@@ -155,6 +186,13 @@ static int nk_listener(const zmk_event_t *eh) {
         /* Every subscribe gets a HELLO so the host can resync layer state. */
         nk_queue_report(NK_MSG_HELLO, NK_PROTOCOL_VERSION, zmk_keymap_layer_default());
         nk_queue_keymap_id();
+#if IS_ENABLED(CONFIG_ZMK_BATTERY_REPORTING)
+        /* Battery levels only change every few minutes, so a restarted overlay needs them resent. */
+        nk_queue_report(NK_MSG_BATTERY, NK_SIDE_LEFT, zmk_battery_state_of_charge());
+        if (right_battery != NK_BATTERY_UNKNOWN) {
+            nk_queue_report(NK_MSG_BATTERY, NK_SIDE_RIGHT, right_battery);
+        }
+#endif
     }
     return ZMK_EV_EVENT_BUBBLE;
 }
@@ -163,3 +201,7 @@ ZMK_LISTENER(null_keys_viz, nk_listener);
 ZMK_SUBSCRIPTION(null_keys_viz, zmk_position_state_changed);
 ZMK_SUBSCRIPTION(null_keys_viz, zmk_layer_state_changed);
 ZMK_SUBSCRIPTION(null_keys_viz, raw_hid_received_event);
+#if IS_ENABLED(CONFIG_ZMK_BATTERY_REPORTING)
+ZMK_SUBSCRIPTION(null_keys_viz, zmk_battery_state_changed);
+ZMK_SUBSCRIPTION(null_keys_viz, zmk_peripheral_battery_state_changed);
+#endif

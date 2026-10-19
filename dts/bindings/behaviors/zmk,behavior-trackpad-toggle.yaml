@@ -1,0 +1,7 @@
+description: |
+  Turns the TPS43 trackpad on or off. Runs on every half; the half with the
+  trackpad saves the state so it is kept through sleep and power cycles.
+
+compatible: "zmk,behavior-trackpad-toggle"
+
+include: zero_param.yaml
