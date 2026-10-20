@@ -1,0 +1,12 @@
+description: |
+  Switches to the next Bluetooth profile that has a host paired, skipping
+  empty profiles. Set reverse to go to the previous one instead.
+
+compatible: "zmk,behavior-bt-cycle"
+
+include: zero_param.yaml
+
+properties:
+  reverse:
+    type: boolean
+    description: Go to the previous paired profile instead of the next.

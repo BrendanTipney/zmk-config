@@ -178,6 +178,18 @@
             compatible = "zmk,behavior-trackpad-toggle";
             #binding-cells = <0>;
         };
+
+        // Next / previous Bluetooth profile, skipping empty ones (modules/bt_cycle).
+        bt_next: bt_next {
+            compatible = "zmk,behavior-bt-cycle";
+            #binding-cells = <0>;
+        };
+
+        bt_prev: bt_prev {
+            compatible = "zmk,behavior-bt-cycle";
+            #binding-cells = <0>;
+            reverse;
+        };
     };
 
     keymap {
@@ -279,9 +291,9 @@
 
         BlueTooth {
             bindings = <
-&trans  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans        &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &bt BT_SEL 3  &bt BT_SEL 4  &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans        &trans        &trans        &bt BT_CLR    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt_next      &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5  &bt_prev      &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &bt BT_SEL 6  &bt BT_SEL 7  &bt BT_SEL 8  &bt BT_CLR    &trans  &trans  &trans  &trans  &trans  &trans
                               &trans        &trans        &trans        &trans  &trans  &trans
             >;
         };

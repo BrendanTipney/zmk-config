@@ -45,12 +45,14 @@ config/
   corne_left.overlay   central side: enables tps43_listener, layer-based sensitivity overrides
   corne_right.overlay  peripheral side: i2c0 bus, TPS43 node, pinctrl, input processors
   west.yml             modules: zmk, essenceotd zmk_driver_azoteq, zzeneg zmk-raw-hid
-build.yaml             CI matrix: corne_left raw_hid_adapter + corne_right, both on nice_nano//zmk
+build.yaml             CI matrix: corne_left raw_hid_adapter + corne_right, both on nice_nano//zmk;
+                       left gets -DCONFIG_BT_MAX_CONN=10 -DCONFIG_BT_MAX_PAIRED=10 (9 profiles + right half)
 zephyr/module.yml      makes this repo a Zephyr module (cmake: modules, dts_root: .)
 modules/
   null_keys_viz/       raw HID stream for the Null Keys overlay (central only)
   tap_drag/            zmk,input-processor-tap-drag: laptop-style tap / tap-and-drag / double tap
   trackpad_toggle/     &tp_toggle behavior + zmk,input-processor-trackpad-gate
+  bt_cycle/            &bt_next / &bt_prev: cycle BT profiles, skipping unpaired ones (central only)
 dts/bindings/          bindings for the custom behavior and input processors
 ```
 
@@ -116,6 +118,10 @@ Full property list: `dts/bindings/input/azoteq,tps43-common.yaml` in the driver 
 Peripheral battery was draining faster than expected prior to the driver migration (AYM1607 driver doesn't suspend the trackpad on ZMK idle). The essenceotd fork integrates with ZMK's activity state machine. CONFIG_ZMK_IDLE_SLEEP_TIMEOUT is 30 minutes. BT TX power is at the default 0 dBm (the +8 dBm option was removed to save battery; add `CONFIG_BT_CTLR_TX_PWR_PLUS_8=y` back if the connection drops).
 
 With `idle-sleep`, the trackpad suspends when the right half goes IDLE (~30 s without activity on that half) and touch can't wake it; only a right-half key press does. Remove `idle-sleep` if that becomes annoying.
+
+## Bluetooth profiles
+
+9 profiles. Bluetooth layer (hold Q): BT_SEL 0-8 in a 3x3 grid on W F P / S R T / X C V, `&bt_next` on G, `&bt_prev` on D, `&bt BT_CLR` on B. ZMK only connects to the selected profile, so "paired" (`!zmk_ble_profile_is_open`) is the most `bt_next` can know; it can't tell whether a host is powered on. Central-only Kconfig like the profile count goes in `build.yaml` `cmake-args` because `corne.conf` is shared.
 
 ## Config notes
 

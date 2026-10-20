@@ -18,7 +18,7 @@ Printable case files: [Thingiverse](https://www.thingiverse.com/thing:7424328)
 | Trackpad | Azoteq TPS43 (IQS5xx family), right half only, I2C |
 | Case | My own design in Fusion 360, printed in PLA at 0.1 mm layers, M2 screws and heat set inserts, fold out tenting legs |
 | Magnets | Three in the case, so the halves snap together and attach to accessories like a pocket mount |
-| Connection | Bluetooth (5 profiles) or USB to the left half |
+| Connection | Bluetooth (9 profiles) or USB to the left half |
 
 The keyboard reports itself as `NullDeck` over Bluetooth and USB.
 
@@ -160,10 +160,12 @@ Play      Prev      Next      Mute      Win+Shift+K
 ### 8 Bluetooth (hold Q)
 
 ```
-          BT 1      BT 2      BT 3
-          BT 4      BT 5
-                                        BT clear
+          BT 1      BT 2      BT 3      BT next
+          BT 4      BT 5      BT 6      BT prev
+          BT 7      BT 8      BT 9      BT clear
 ```
+
+BT next and BT prev skip profiles with nothing paired, so they only cycle through computers you've set up. The keyboard can't tell whether a paired computer is switched on, because it only connects to the selected profile, so a paired computer that's off still gets a turn.
 
 ### Other layers
 
@@ -234,6 +236,7 @@ And in this repo, as a Zephyr module (`zephyr/module.yml`):
 
 * `modules/tap_drag`: laptop style tap, tap and drag and double tap for the trackpad
 * `modules/trackpad_toggle`: the `&tp_toggle` behavior behind N + I, plus the input processor that drops trackpad input while it's off
+* `modules/bt_cycle`: `&bt_next` and `&bt_prev`, which switch Bluetooth profiles and skip the empty ones
 * `modules/null_keys_viz`: streams key, layer and battery events to the NullKeys overlay
 
 ## NullKeys overlay
@@ -269,12 +272,12 @@ If the status stays red, hover over it to see why. "Keyboard not found" usually 
 | File | What it holds |
 |---|---|
 | `config/corne.keymap` | Layers, combos, macros and behaviors |
-| `config/corne.conf` | Shared Kconfig: keyboard name, sleep, Bluetooth power, pointing |
+| `config/corne.conf` | Shared Kconfig: keyboard name, sleep, battery reporting, pointing |
 | `config/corne.dtsi` | Split input plumbing shared by both halves |
 | `config/corne_left.overlay` | Central side: trackpad listener and the sensitivity layer overrides |
 | `config/corne_right.overlay` | Peripheral side: I2C bus, TPS43 node and pins, input processors |
 | `config/west.yml` | External modules |
-| `build.yaml` | Build matrix for the two halves |
+| `build.yaml` | Build matrix for the two halves, and the left half's Bluetooth profile count |
 | `.github/workflows/build.yml` | Firmware build, plus publishing the Latest build and `v*` releases |
 
 ## Tuning the trackpad

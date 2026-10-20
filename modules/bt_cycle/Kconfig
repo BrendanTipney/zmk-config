@@ -1,0 +1,5 @@
+config ZMK_BEHAVIOR_BT_CYCLE
+    bool "Next / previous Bluetooth profile that has a host paired"
+    default y
+    # Same condition ZMK uses for its own &bt behavior: profiles only exist on the central.
+    depends on DT_HAS_ZMK_BEHAVIOR_BT_CYCLE_ENABLED && ZMK_BLE && (!ZMK_SPLIT || ZMK_SPLIT_ROLE_CENTRAL)

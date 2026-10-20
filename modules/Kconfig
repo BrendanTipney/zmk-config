@@ -1,3 +1,4 @@
 rsource "null_keys_viz/Kconfig"
 rsource "tap_drag/Kconfig"
 rsource "trackpad_toggle/Kconfig"
+rsource "bt_cycle/Kconfig"

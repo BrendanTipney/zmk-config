@@ -1,0 +1,5 @@
+if (CONFIG_ZMK_BEHAVIOR_BT_CYCLE)
+  zephyr_library()
+  zephyr_library_sources(src/behavior_bt_cycle.c)
+  zephyr_include_directories(${APPLICATION_SOURCE_DIR}/include)
+endif()

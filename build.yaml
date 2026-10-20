@@ -11,9 +11,12 @@
 include:
   # raw_hid_adapter goes on the left half only: it is the split central, so it owns
   # layer state and the link to the computer that the Null Keys overlay reads.
+  # 9 Bluetooth profiles: one more than that for the link to the right half. Only the
+  # central needs these, and corne.conf would apply them to both halves.
   - board: nice_nano//zmk
     shield: corne_left raw_hid_adapter
     artifact-name: corne_left-nice_nano_v2
+    cmake-args: -DCONFIG_BT_MAX_CONN=10 -DCONFIG_BT_MAX_PAIRED=10
   - board: nice_nano//zmk
     shield: corne_right
     artifact-name: corne_right-nice_nano_v2
