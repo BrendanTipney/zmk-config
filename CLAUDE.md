@@ -123,7 +123,7 @@ With `idle-sleep`, the trackpad suspends when the right half goes IDLE (~30 s wi
 
 9 profiles. Bluetooth layer (hold Q): BT_SEL 0-8 in a 3x3 grid on W F P / S R T / X C V, `&bt_next` on G, `&bt_prev` on D, `&bt BT_CLR` on B. ZMK only connects to the selected profile, so "paired" (`!zmk_ble_profile_is_open`) is the most `bt_next` can know; it can't tell whether a host is powered on. Central-only Kconfig like the profile count goes in `build.yaml` `cmake-args` because `corne.conf` is shared.
 
-Pairing: `CONFIG_ZMK_BLE_EXPERIMENTAL_SEC=y` (allows re-pairing a host over its old unauthenticated bond) with `CONFIG_ZMK_BLE_PASSKEY_ENTRY=y`. The host shows 6 digits; type them (number row or keypad, via the Num/Sym layer) and press Enter (not keypad Enter). Esc cancels, Backspace is ignored, extra digits push out the oldest. Hosts paired before this was enabled had to be re-paired.
+Pairing: `CONFIG_ZMK_BLE_EXPERIMENTAL_SEC=y` (allows re-pairing a host over its old unauthenticated bond) with `CONFIG_ZMK_BLE_PASSKEY_ENTRY=n` set explicitly, because EXPERIMENTAL_SEC implies passkey entry. Don't turn passkey entry on: while a passkey is pending ZMK returns HANDLED for every keycode, so all typing stops, USB included, and existing Just Works bonds trigger the prompt when they reconnect. This happened on 2026-10-20 (commit 49675cd). Esc cancels a pending prompt.
 
 ## Config notes
 
