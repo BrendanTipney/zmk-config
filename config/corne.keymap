@@ -140,7 +140,7 @@
 
         TrackpadToggle {
             bindings = <&tp_toggle>;
-            key-positions = <19 21>;
+            key-positions = <18 19>;
             require-prior-idle-ms = <150>;
         };
     };
@@ -174,12 +174,14 @@
         };
 
         // Trackpad on/off, remembered through sleep (modules/trackpad_toggle).
+
         tp_toggle: tp_toggle {
             compatible = "zmk,behavior-trackpad-toggle";
             #binding-cells = <0>;
         };
 
         // Next / previous Bluetooth profile, skipping empty ones (modules/bt_cycle).
+
         bt_next: bt_next {
             compatible = "zmk,behavior-bt-cycle";
             #binding-cells = <0>;
