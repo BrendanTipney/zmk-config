@@ -63,7 +63,7 @@ The right thumbs mirror Space/Shift and Enter/Ctrl. The outer right thumb types 
 
 **Gaming mode.** Press A + S + T to toggle the Gaming layer. It puts QWERTY back one column in, with WASD under the fingers, Shift and Ctrl on the pinky, and T, G and Space on the thumbs. Hold Q on that layer for the number row.
 
-**Trackpad with laptop gestures.** Tap to click, tap then drag to hold the button, double tap to double click, two finger tap, scroll and zoom. A custom input processor (`modules/tap_drag`) handles tap and drag. Hold P for high sensitivity (1.8x) and V for low sensitivity (0.45x) when you need speed or precision. Press N + I to turn the trackpad off or back on; the setting is saved, so it stays that way through sleep (`modules/trackpad_toggle`).
+**Trackpad with laptop gestures.** Tap to click, tap then drag to hold the button, double tap to double click, two finger tap for right click, and two finger scroll. A custom input processor (`modules/tap_drag`) handles tap and drag. Hold P for high sensitivity (1.8x) and V for low sensitivity (0.45x) when you need speed or precision. Press N + I to turn the trackpad off or back on; the setting is saved, so it stays that way through sleep (`modules/trackpad_toggle`).
 
 **Long battery life.** The trackpad driver fork sleeps the pad with the keyboard, and the halves go to deep sleep after 30 minutes idle.
 

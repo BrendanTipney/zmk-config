@@ -56,14 +56,15 @@ dts/bindings/          bindings for the custom behavior and input processors
 
 ## Key behaviors tied to the trackpad
 
-- **Peripheral processor chain**: `zip_trackpad_gate` -> `zip_tap_drag` -> Y invert -> 0.9x scaler
+- **Peripheral processor chain**: `zip_trackpad_gate` -> `zip_tap_drag` -> Y invert -> 0.9x XY scaler -> 1/6 scroll scaler
+- **Scroll speed**: `zip_scroll_scaler 1 6` on peripheral. Not the driver's `scroll-sensitivity`, which truncates without remainders and kills slow scrolls.
 - **Base sensitivity**: 0.9x via `zip_xy_scaler 9 10` on peripheral (one-time global reduction)
 - **Y axis inverted**: `zip_xy_transform INPUT_TRANSFORM_Y_INVERT` on peripheral (because the pad is mounted sideways)
 - **Hold P (lt 12 P)**: activates HighSens layer, applies `zip_xy_scaler 2 1` on central listener, effective 1.8x
 - **Hold V (lt 13 V)**: activates LowSens layer, applies `zip_xy_scaler 1 2` on central listener, effective 0.45x
 - **T+D combo**: fires `&mkp MCLK` (middle click), restricted to layer 0
 - **N+I combo**: `&tp_toggle`, turns the trackpad off/on. Global behavior, so it runs on the right half; the state is saved to flash there (after ZMK's settings save debounce) and survives deep sleep. Has `require-prior-idle-ms = <150>` so typing "ni" doesn't trigger it.
-- **Gestures**: tap = click (sent after the 200 ms drag window), tap then touch-and-move = drag, double tap = double click, two-finger tap = right click, two-finger scroll, zoom (zoom events are currently dropped by ZMK). Chip press-and-hold is off.
+- **Gestures**: tap = click (sent after the 200 ms drag window), tap then touch-and-move = drag, double tap = double click, two-finger tap = right click, two-finger scroll. Chip press-and-hold and zoom are off (ZMK drops zoom's `INPUT_REL_MISC`, and leaving it on can swallow parts of two-finger scrolls).
 - **Smoothing**: `filter-settings = <0x0B>` (dynamic IIR) with `filter-dynamic-bottom = <5>`.
 
 ## Driver gotchas
@@ -82,13 +83,15 @@ Godot 4 project at `D:\Code\null_keys` (not a git repo). A Python bridge (`bridg
 
 ## Build and flash
 
-Pushes to the `colemak` branch (default) trigger GitHub Actions. Artifacts show up as `artifact-corne_left-nice_nano_v2` and `artifact-corne_right-nice_nano_v2`. There is no local toolchain; CI is the only build.
+Pushes to the `colemak` branch (default) trigger GitHub Actions, except pushes that only touch `**.md`, `LICENSE`, `.gitignore` or `nullkeys_overlay/**`, and `[skip ci]` commits. A successful build replaces the files on the rolling `latest` pre-release (`corne_left-nice_nano_v2.uf2`, `corne_right-nice_nano_v2.uf2`); `v*` tags get a permanent release. Other tags don't build. There is no local toolchain; CI is the only build.
+
+The overlay exe (`nullkeys_overlay/null_keys.exe`, ~109 MB) is over GitHub's 100 MB file limit, so it's git-ignored and published on the `overlay` release instead (`gh release upload overlay nullkeys_overlay/null_keys.exe --clobber`). The exe embeds a copy of the keymap from `D:\Code\null_keys\data\corne.keymap`; after keymap changes, copy the new keymap there and re-export with `tools/export.ps1`, or the overlay shows "keymap differs".
 
 Flash by double-tapping reset on the Nice!Nano, then dragging the UF2 onto the `NICENANO` USB drive that appears. Trackpad and processor changes live on the right half, so that's the one to reflash for them.
 
 ## GitHub
 
-- Repo: https://github.com/BrendanTipney/zmk-config
+- Repo: https://github.com/BrendanTipney/NullKeys (renamed from `zmk-config`; old URLs redirect)
 - Working branch: `colemak`
 - Build workflow: `.github/workflows/build.yml`
 
@@ -110,7 +113,14 @@ Full property list: `dts/bindings/input/azoteq,tps43-common.yaml` in the driver 
 
 ## Battery context
 
-Peripheral battery was draining faster than expected prior to the driver migration (AYM1607 driver doesn't suspend the trackpad on ZMK idle). The essenceotd fork integrates with ZMK's activity state machine. CONFIG_ZMK_IDLE_SLEEP_TIMEOUT is 30 minutes.
+Peripheral battery was draining faster than expected prior to the driver migration (AYM1607 driver doesn't suspend the trackpad on ZMK idle). The essenceotd fork integrates with ZMK's activity state machine. CONFIG_ZMK_IDLE_SLEEP_TIMEOUT is 30 minutes. BT TX power is at the default 0 dBm (the +8 dBm option was removed to save battery; add `CONFIG_BT_CTLR_TX_PWR_PLUS_8=y` back if the connection drops).
+
+With `idle-sleep`, the trackpad suspends when the right half goes IDLE (~30 s without activity on that half) and touch can't wake it; only a right-half key press does. Remove `idle-sleep` if that becomes annoying.
+
+## Config notes
+
+- ZMK ignores `corne_left.conf` / `corne_right.conf` when `corne.conf` exists, so every Kconfig line applies to both halves. Central-only options (`ZMK_USB`, the split battery options) just warn on the right half.
+- Layer `label` properties stay: the Null Keys overlay uses them for layer names.
 
 ## Preferences
 

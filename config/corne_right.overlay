@@ -55,8 +55,9 @@
 
         single-tap;
         two-finger-tap;
+        // No zoom: ZMK drops its INPUT_REL_MISC events, and with it on the chip
+        // can read part of a two-finger scroll as a pinch and swallow it.
         scroll;
-        zoom;
 
         // 0x0B = IIR + MAV + ALP filters with the dynamic (speed-based) IIR.
         // The driver default 0x0F selects the static IIR, which ignores the
