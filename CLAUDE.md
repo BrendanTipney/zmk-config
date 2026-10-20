@@ -115,13 +115,15 @@ Full property list: `dts/bindings/input/azoteq,tps43-common.yaml` in the driver 
 
 ## Battery context
 
-Peripheral battery was draining faster than expected prior to the driver migration (AYM1607 driver doesn't suspend the trackpad on ZMK idle). The essenceotd fork integrates with ZMK's activity state machine. CONFIG_ZMK_IDLE_SLEEP_TIMEOUT is 30 minutes. BT TX power is at the default 0 dBm (the +8 dBm option was removed to save battery; add `CONFIG_BT_CTLR_TX_PWR_PLUS_8=y` back if the connection drops).
+Peripheral battery was draining faster than expected prior to the driver migration (AYM1607 driver doesn't suspend the trackpad on ZMK idle). The essenceotd fork integrates with ZMK's activity state machine. CONFIG_ZMK_IDLE_SLEEP_TIMEOUT is 30 minutes. BT TX power is +8 dBm (`CONFIG_BT_CTLR_TX_PWR_PLUS_8=y`). ZMK's connection troubleshooting docs recommend it and call the power cost negligible, so don't remove it to save battery.
 
 With `idle-sleep`, the trackpad suspends when the right half goes IDLE (~30 s without activity on that half) and touch can't wake it; only a right-half key press does. Remove `idle-sleep` if that becomes annoying.
 
 ## Bluetooth profiles
 
 9 profiles. Bluetooth layer (hold Q): BT_SEL 0-8 in a 3x3 grid on W F P / S R T / X C V, `&bt_next` on G, `&bt_prev` on D, `&bt BT_CLR` on B. ZMK only connects to the selected profile, so "paired" (`!zmk_ble_profile_is_open`) is the most `bt_next` can know; it can't tell whether a host is powered on. Central-only Kconfig like the profile count goes in `build.yaml` `cmake-args` because `corne.conf` is shared.
+
+Pairing: `CONFIG_ZMK_BLE_EXPERIMENTAL_SEC=y` (allows re-pairing a host over its old unauthenticated bond) with `CONFIG_ZMK_BLE_PASSKEY_ENTRY=y`. The host shows 6 digits; type them (number row or keypad, via the Num/Sym layer) and press Enter (not keypad Enter). Esc cancels, Backspace is ignored, extra digits push out the oldest. Hosts paired before this was enabled had to be re-paired.
 
 ## Config notes
 

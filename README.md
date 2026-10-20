@@ -222,7 +222,16 @@ To flash a half:
 2. Double tap the reset button. A drive called `NICENANO` appears.
 3. Drag that half's `.uf2` file onto the drive. It reboots on its own when the copy finishes.
 
-Flash both halves after changes to the keymap or anything shared. To pair, clear the profile on your computer and on the keyboard (Bluetooth layer, BT clear), then connect to `NullDeck`.
+Flash both halves after changes to the keymap or anything shared.
+
+### Pairing
+
+Pairing uses a passkey. When you connect to `NullDeck`, the computer shows a 6 digit code. Type it on the keyboard (hold A for the numbers, 0 is on the left Space thumb) and press Enter. The digits aren't typed into anything while the keyboard is waiting for the code. A wrong digit can't be backspaced; keep typing, because only the last six count. Esc cancels.
+
+* **A new computer:** select an empty profile first (hold Q and press its BT key), then connect to `NullDeck` and enter the passkey. A profile that's already paired only lets its own computer connect, so other computers can't find the keyboard on it. BT next and BT prev skip empty profiles, so use the numbered keys.
+* **A computer that forgot the keyboard:** remove `NullDeck` on the computer if it's still listed, select that computer's profile on the keyboard, and pair again. The new pairing replaces the old one, so you don't need BT clear.
+* **Still stuck:** select the profile and press BT clear. That clears only the selected profile, so the other computers stay paired. On Windows, remove `NullDeck` in Bluetooth settings, turn Bluetooth off and on, then pair again. If it still won't show up, open Device Manager, choose View > Show hidden devices, and delete any leftover `NullDeck` entries under Bluetooth before pairing.
+* Don't pair two operating systems on the same machine (dual boot) to one profile. They share the Bluetooth hardware address but not the keys, so each needs its own profile.
 
 ### Modules
 
