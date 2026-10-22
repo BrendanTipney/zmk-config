@@ -63,7 +63,7 @@ The right thumbs mirror Space/Shift and Enter/Ctrl. The outer right thumb types 
 
 **Gaming mode.** Press A + S + T to toggle the Gaming layer. It puts QWERTY back one column in, with WASD under the fingers, Shift and Ctrl on the pinky, and T, G and Space on the thumbs. Hold Q on that layer for the number row.
 
-**Trackpad with laptop gestures.** Tap to click, tap then drag to hold the button, double tap to double click, two finger tap for right click, and two finger scroll. A custom input processor (`modules/tap_drag`) handles tap and drag. Hold P for high sensitivity (1.8x) and V for low sensitivity (0.45x) when you need speed or precision. Press N + I to turn the trackpad off or back on; the setting is saved, so it stays that way through sleep (`modules/trackpad_toggle`).
+**Trackpad with laptop gestures.** Tap to click, tap then drag to hold the button, double tap to double click, two finger tap for right click, and two finger scroll. A custom input processor (`modules/tap_drag`) handles tap and drag. Hold P for high sensitivity (1.8x) and V for low sensitivity (0.45x) when you need speed or precision. Press H + N to turn the trackpad off or back on; the setting is saved, so it stays that way through sleep (`modules/trackpad_toggle`).
 
 **Long battery life.** The trackpad driver fork sleeps the pad with the keyboard, and the halves go to deep sleep after 30 minutes idle.
 
@@ -203,7 +203,7 @@ BT next and BT prev skip profiles with nothing paired, so they only cycle throug
 | A + S + T | Toggle Gaming | All |
 | S + T + D | Toggle QWERTY | All |
 | T + D | Middle click | Base |
-| N + I | Trackpad on / off (remembered through sleep) | All |
+| H + N | Trackpad on / off (remembered through sleep) | All |
 | A + left Enter | Function layer | Base |
 | Q + S + Z + C | Shut down Windows (Win+X, U, U) | All |
 
@@ -243,7 +243,7 @@ Set up in `config/west.yml`:
 And in this repo, as a Zephyr module (`zephyr/module.yml`):
 
 * `modules/tap_drag`: laptop style tap, tap and drag and double tap for the trackpad
-* `modules/trackpad_toggle`: the `&tp_toggle` behavior behind N + I, plus the input processor that drops trackpad input while it's off
+* `modules/trackpad_toggle`: the `&tp_toggle` behavior behind H + N, plus the input processor that drops trackpad input while it's off
 * `modules/bt_cycle`: `&bt_next` and `&bt_prev`, which switch Bluetooth profiles and skip the empty ones
 * `modules/null_keys_viz`: streams key, layer and battery events to the NullKeys overlay
 
@@ -293,10 +293,10 @@ If the status stays red, hover over it to see why. "Keyboard not found" usually 
 All in `config/corne_right.overlay` unless noted:
 
 * Base speed: `zip_xy_scaler 9 10` (0.9x)
-* Scroll speed: `zip_scroll_scaler 1 6` (1/6)
+* Scroll speed: `zip_scroll_scaler 8 3`. Smooth scrolling (`CONFIG_ZMK_POINTING_SMOOTH_SCROLLING`) makes 16 wheel units one notch, so this is the same as 1/6 of a notch per unit from the pad, in finer steps
 * Axis direction: `zip_xy_transform INPUT_TRANSFORM_Y_INVERT`
 * Tap and drag window: `window-ms` on `zip_tap_drag` (200 ms)
-* Smoothing: `filter-settings` and `filter-dynamic-bottom`
+* Smoothing: `filter-settings` (dynamic filter values are at the chip defaults; `filter-dynamic-bottom`, `-lower` and `-upper` override them)
 * Sensitivity layers: the `high_sens_override` and `low_sens_override` blocks in `config/corne_left.overlay`
 
 ## License

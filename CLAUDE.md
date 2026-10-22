@@ -58,16 +58,16 @@ dts/bindings/          bindings for the custom behavior and input processors
 
 ## Key behaviors tied to the trackpad
 
-- **Peripheral processor chain**: `zip_trackpad_gate` -> `zip_tap_drag` -> Y invert -> 0.9x XY scaler -> 1/6 scroll scaler
-- **Scroll speed**: `zip_scroll_scaler 1 6` on peripheral. Not the driver's `scroll-sensitivity`, which truncates without remainders and kills slow scrolls.
+- **Peripheral processor chain**: `zip_trackpad_gate` -> `zip_tap_drag` -> Y invert -> 0.9x XY scaler -> 8/3 scroll scaler
+- **Scroll speed**: `CONFIG_ZMK_POINTING_SMOOTH_SCROLLING=y` (HID resolution multiplier, host sets up to 16 units per notch) with `zip_scroll_scaler 8 3` on peripheral, equal to the old 1/6 notch per driver unit. The two go together: without the multiplier 8/3 scrolls 16x too fast. Not the driver's `scroll-sensitivity`, which truncates without remainders and kills slow scrolls.
 - **Base sensitivity**: 0.9x via `zip_xy_scaler 9 10` on peripheral (one-time global reduction)
 - **Y axis inverted**: `zip_xy_transform INPUT_TRANSFORM_Y_INVERT` on peripheral (because the pad is mounted sideways)
 - **Hold P (lt 12 P)**: activates HighSens layer, applies `zip_xy_scaler 2 1` on central listener, effective 1.8x
 - **Hold V (lt 13 V)**: activates LowSens layer, applies `zip_xy_scaler 1 2` on central listener, effective 0.45x
 - **T+D combo**: fires `&mkp MCLK` (middle click), restricted to layer 0
-- **N+I combo**: `&tp_toggle`, turns the trackpad off/on. Global behavior, so it runs on the right half; the state is saved to flash there (after ZMK's settings save debounce) and survives deep sleep. Has `require-prior-idle-ms = <150>` so typing "ni" doesn't trigger it.
+- **H+N combo** (positions 18 19): `&tp_toggle`, turns the trackpad off/on. Global behavior, so it runs on the right half; the state is saved to flash there (after ZMK's settings save debounce) and survives deep sleep. Has `require-prior-idle-ms = <150>` so typing "hn" or "nh" doesn't trigger it.
 - **Gestures**: tap = click (sent after the 200 ms drag window), tap then touch-and-move = drag, double tap = double click, two-finger tap = right click, two-finger scroll. Chip press-and-hold and zoom are off (ZMK drops zoom's `INPUT_REL_MISC`, and leaving it on can swallow parts of two-finger scrolls).
-- **Smoothing**: `filter-settings = <0x0B>` (dynamic IIR) with `filter-dynamic-bottom = <5>`.
+- **Smoothing**: `filter-settings = <0x0B>` (dynamic IIR), dynamic filter values at chip defaults (`filter-dynamic-bottom = <5>` was removed 2026-10-22 while chasing unreliable small movements).
 
 ## Driver gotchas
 

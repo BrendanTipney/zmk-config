@@ -60,10 +60,9 @@
         scroll;
 
         // 0x0B = IIR + MAV + ALP filters with the dynamic (speed-based) IIR.
-        // The driver default 0x0F selects the static IIR, which ignores the
-        // dynamic settings below. Bottom beta 5 matches the old AYM1607 setup.
+        // The driver default 0x0F selects the static IIR instead. The dynamic
+        // filter's bottom/lower/upper values are left at the chip defaults.
         filter-settings = <0x0B>;
-        filter-dynamic-bottom = <5>;
 
         enable-power-management;
         idle-sleep;
@@ -76,7 +75,8 @@
                        <&zip_tap_drag>,
                        <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
                        <&zip_xy_scaler 9 10>,
-                       // Scroll at 1/6. Done here rather than with the driver's
-                       // scroll-sensitivity, which drops the remainder and loses slow scrolls.
-                       <&zip_scroll_scaler 1 6>;
+                       // Same speed as the old 1/6 notch per driver unit, but in smooth
+                       // scrolling units (16 per notch): 16/6 = 8/3. Done here rather than
+                       // with scroll-sensitivity, which drops remainders.
+                       <&zip_scroll_scaler 8 3>;
 };
